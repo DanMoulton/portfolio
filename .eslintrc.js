@@ -22,6 +22,12 @@ module.exports = {
     rules: {
         '@typescript-eslint/interface-name-prefix': 'off',
         '@typescript-eslint/explicit-module-boundary-types': 'off',
+        '@typescript-eslint/no-explicit-any': 0,
+        '@typescript-eslint/no-non-null-assertion': 'off',
+        '@typescript-eslint/no-unused-vars': [
+            'error'
+        ],
+        '@typescript-eslint/no-var-requires': 'off',
         '@typescript-eslint/type-annotation-spacing': [
             'error',
             {
@@ -29,16 +35,32 @@ module.exports = {
                 'after': true
             }
         ],
-        '@typescript-eslint/no-explicit-any': 0,
-        '@typescript-eslint/no-non-null-assertion': 'off',
-        '@typescript-eslint/no-unused-vars': [
-            'error'
+        'arrow-spacing': 2,
+        'camelcase': 2,
+        'comma-spacing': 2,
+        'computed-property-spacing': [
+            'error',
+            'always',
+            {
+                'enforceForClassMembers': true
+            }
         ],
-        '@typescript-eslint/no-var-requires': 'off',
         'constructor-super': 2,
         'for-direction': 2,
         'getter-return': 2,
         'jsdoc/no-undefined-types': 0,
+        'key-spacing': [
+            'error',
+            {
+                'beforeColon': false,
+                'afterColon': true
+            },
+        ],
+        'keyword-spacing': [
+            'error',
+            { 'before': true, 'after': true }
+        ],
+        'linebreak-style': 2,
         'no-async-promise-executor': 2,
         'no-case-declarations': 2,
         'no-class-assign': 2,
@@ -46,6 +68,7 @@ module.exports = {
         'no-cond-assign': 2,
         'no-const-assign': 2,
         'no-constant-condition': 2,
+        'no-constructor-return': 2,
         'no-control-regex': 2,
         'no-debugger': 2,
         'no-delete-var': 2,
@@ -54,6 +77,7 @@ module.exports = {
         'no-dupe-else-if': 2,
         'no-dupe-keys': 2,
         'no-duplicate-case': 2,
+        'no-else-return': 2,
         'no-empty': 2,
         'no-empty-character-class': 2,
         'no-empty-pattern': 2,
@@ -90,25 +114,7 @@ module.exports = {
         'no-useless-catch': 2,
         'no-useless-escape': 2,
         'no-with': 2,
-        'require-yield': 2,
-        'use-isnan': 2,
-        'valid-typeof': 2,
-        'no-console': 2,
-        'no-constructor-return': 2,
-        'sort-imports': [
-            2,
-            {
-                'ignoreCase': true,
-                'allowSeparatedGroups': true
-            }
-        ],
-        'require-await': 2,
         'prefer-const': 2,
-        'no-else-return': 2,
-        'comma-spacing': 2,
-        'arrow-spacing': 2,
-        'camelcase': 2,
-        'linebreak-style': 2,
         'quotes': [
             2,
             'single',
@@ -116,24 +122,18 @@ module.exports = {
                 'avoidEscape': true
             }
         ],
-        'computed-property-spacing': [
-            'error',
-            'always',
+        'require-await': 2,
+        'require-yield': 2,
+        'semi': 2,
+        'sort-imports': [
+            2,
             {
-                'enforceForClassMembers': true
+                'ignoreCase': true,
+                'allowSeparatedGroups': true
             }
         ],
-        'keyword-spacing': [
-            'error',
-            { 'before': true, 'after': true }
-        ],
-        'key-spacing': [
-            'error',
-            {
-                'beforeColon': false,
-                'afterColon': true
-            },
-        ],
-        'space-infix-ops': 'error'
+        'space-infix-ops': 2,
+        'use-isnan': 2,
+        'valid-typeof': 2
     }
-}
+};
