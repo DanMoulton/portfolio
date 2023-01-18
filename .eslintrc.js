@@ -38,13 +38,6 @@ module.exports = {
         'arrow-spacing': 2,
         'camelcase': 2,
         'comma-spacing': 2,
-        'computed-property-spacing': [
-            'error',
-            'always',
-            {
-                'enforceForClassMembers': true
-            }
-        ],
         'constructor-super': 2,
         'for-direction': 2,
         'getter-return': 2,
