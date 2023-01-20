@@ -3,18 +3,16 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { IfScreenSizeDirective } from './shared/directives/if-screen-size.directive';
-import { NavComponent } from './shared/components/nav/nav.component';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
     declarations: [
-        AppComponent,
-        NavComponent,
-        IfScreenSizeDirective
+        AppComponent
     ],
     imports: [
         BrowserModule,
-        AppRoutingModule
+        AppRoutingModule,
+        CoreModule
     ],
     providers: [],
     bootstrap: [AppComponent]
