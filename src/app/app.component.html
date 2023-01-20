@@ -1,12 +1,21 @@
-<div class="container">
-    <!-- HEADER -->
-    <app-nav></app-nav>
-    <img src="assets/svg/logo.svg" class="logo">
+<div id="container">
+    <!-- MOBILE -->
+    <app-nav *ifScreenSize="'small'">
+        <!-- <router-outlet></router-outlet> -->
+        <app-content></app-content>
+    </app-nav>
 
-    <!-- CONTENT -->
-    <div class="content">
-        <router-outlet></router-outlet>
+    <!-- TABLET & DESKTOP -->
+    <div *ifScreenSize="[ 'medium', 'large']">
+        <!-- HEADER -->
+        <app-header></app-header>
+
+        <!-- CONTENT -->
+        <div id="content">
+            <router-outlet></router-outlet>
+        </div>
+
+        <!-- FOOTER -->
+        <app-footer></app-footer>
     </div>
-
-    <!-- FOOTER -->
 </div>

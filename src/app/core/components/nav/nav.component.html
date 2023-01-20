@@ -1,0 +1,19 @@
+<div id="container" [ngClass]="{ 'menu': navToggle }" (click)="navToggle = !navToggle">
+    <div id="menu-btn"></div>
+
+    <div id="nav">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+
+    <!-- CONTENT -->
+    <div id="content">
+        <img src="assets/svg/logo.svg" class="logo">
+
+        <ng-content></ng-content>
+    </div>
+</div>
