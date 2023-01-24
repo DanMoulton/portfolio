@@ -1,19 +1,36 @@
-<div id="container" [ngClass]="{ 'menu': navToggle }" (click)="navToggle = !navToggle">
-    <div id="menu-btn"></div>
+<div id="container" [ngClass]="{ 'menu': navOpen }">
+    <div id="menu-btn" (click)="navOpen = !navOpen"></div>
+    <img src="assets/svg/brand-logo.svg" class="brand-logo">
 
-    <div id="nav">
-        <ul>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-        </ul>
+    <div id="nav-container">
+        <div id="nav">
+            <ul>
+                <li *ngFor="let route of routes">
+                    <a [routerLink]="route.path"
+                    routerLinkActive="route-active"
+                    (click)="navOpen = false">
+                    {{ route.title }}
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div id="social">
+            <a href="{{environment.githubUrl}}" target="_blank">
+                <img src="assets/svg/github-logo-white.svg" class="social-logo">
+            </a>
+              <a href="{{environment.linkedInUrl}}" target="_blank">
+                <img src="assets/svg/linkedIn-logo.svg" class="social-logo">
+            </a>
+        </div>
+
+        <p id="copyright">&#169;2023 {{environment.author}}. All rights reserved.</p>
     </div>
 
     <!-- CONTENT -->
-    <div id="content">
-        <img src="assets/svg/logo.svg" class="logo">
-
-        <ng-content></ng-content>
+    <div id="content-container">
+        <div id="content">
+            <ng-content></ng-content>
+        </div>
     </div>
 </div>

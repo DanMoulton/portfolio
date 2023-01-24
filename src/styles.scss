@@ -1,7 +1,33 @@
+@import "app/shared/styles/variables";
+
+///// Fonts /////
+@font-face {
+    font-family: Exo2;
+    src: url("/assets/fonts/Rubik-VariableFont_wght.ttf") format("truetype");
+}
+
+///// Global styles /////
 html,
 body {
     height: 100%;
     width: 100%;
     margin: 0;
     padding: 0;
+    font-family: "Exo2";
+    font-size: 0.9rem;
+    color: $brand-green !important;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+///// Rules for content to display correctly in landscape mode on devices with notches /////
+@supports (padding: max(0px)) {
+    body,
+    header,
+    footer {
+        padding-left: min(0vmin, env(safe-area-inset-left));
+        padding-right: min(0vmin, env(safe-area-inset-right));
+    }
 }
