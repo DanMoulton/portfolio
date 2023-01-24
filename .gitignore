@@ -6,6 +6,9 @@
 /out-tsc
 .angular
 
+# Firebase
+.firebase
+
 # dependencies
 /node_modules
 
