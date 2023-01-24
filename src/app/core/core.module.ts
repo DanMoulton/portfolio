@@ -5,6 +5,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { IfScreenSizeDirective } from './directives/if-screen-size.directive';
 import { NavComponent } from './components/nav/nav.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -14,9 +15,11 @@ import { NavComponent } from './components/nav/nav.component';
     IfScreenSizeDirective
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ],
   exports: [
+    RouterModule,
     HeaderComponent,
     FooterComponent,
     NavComponent,
