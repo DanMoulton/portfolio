@@ -64,11 +64,11 @@ a {
 }
 
 #menu-btn {
-    position: absolute;
+    position: fixed;
     height: 22px;
     width: 25px;
     top: 3vh;
-    left: 7vw;
+    right: 4vw;
     z-index: 40;
     border-top: 2px solid $brand-green;
     box-sizing: border-box;
@@ -77,7 +77,7 @@ a {
 
     @media (orientation: landscape) {
         top: 8vh;
-        left: 5vw;
+        right: 5vw;
     }
 
     &:before {
@@ -122,22 +122,13 @@ a {
         z-index: 30;
         opacity: 1;
         overflow: scroll;
-
-        li {
-            width: 100%;
-            margin-left: 0 !important;
-            font-size: 1.4rem;
-            font-weight: 300;
-
-            @media (orientation: landscape) {
-                margin-top: 2vh;
-            }
-        }
     }
 }
 
 #nav-container {
     position: absolute;
+    display: flex;
+    flex-direction: column;
     height: 100%;
     width: 100%;
     z-index: 10;
@@ -151,7 +142,7 @@ a {
         padding: 20vh 10vw 0 10vw;
 
         @media (orientation: landscape) {
-            padding: 28vh 8vw 0 8vw;
+            padding: 22vh 8vw 0 8vw;
         }
     }
 
@@ -161,39 +152,36 @@ a {
         .social-logo {
             height: 24px;
             width: 24px;
-            margin: 2vh 3vw;
+            margin: 1vh 3vw;
 
             @media (orientation: landscape) {
-                margin: 2vh 2vw;
+                margin: 1vh 2vw;
             }
         }
     }
 
     #copyright {
+        padding-bottom: 2vh;
         text-align: center;
         font-size: 0.8rem;
         color: $dark-grey;
     }
 
     ul {
+        padding: 0;
         color: inherit;
         list-style-type: none;
 
         li {
-            height: 7vh;
-            width: 0;
-            @include transition(all 0.4s ease-in);
+            height: 8vh;
+            line-height: 8vh;
+            text-align: center;
+            font-size: 1.4rem;
+            font-weight: 300;
 
-            & + li {
-                margin-left: -40px;
-
-                & + li {
-                    margin-left: -80px;
-
-                    & + li {
-                        margin-left: -120px;
-                    }
-                }
+            @media (orientation: landscape) {
+                height: 10vh;
+                line-height: 10vh;
             }
         }
     }
@@ -201,14 +189,18 @@ a {
 
 .brand-logo {
     display: block;
-    position: absolute;
+    position: fixed;
     height: 100px;
     width: 115px;
     margin: 0 auto;
-    left: 0;
-    right: 0;
-    padding-top: 3vh;
+    top: 1vh;
+    left: 3vw;
     z-index: 50;
+
+    @media (orientation: landscape) {
+        top: 2vh;
+        left: 4vw;
+    }
 }
 
 #content-container {
@@ -219,11 +211,15 @@ a {
     background-color: black;
 
     #content {
-        padding: 20vh 10vw 0 10vw;
+        margin: 20vh 7vw 0 5vw;
+        padding: 2vh 3vw;
+        // border: 1px solid $translucent-brand-green;
+        // border-left: 1px solid;
+        // background-color: $translucent-dark-green;
         @include transition(all 0.3s ease-in);
 
         @media (orientation: landscape) {
-            padding: 40vh 8vw 0 8vw;
+            padding: 14vh 4vw 0 4vw;
         }
     }
 }
