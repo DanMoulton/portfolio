@@ -1,15 +1,14 @@
-<div id="container" [ngClass]="{ 'menu': navOpen }">
-    <div id="menu-btn" (click)="navOpen = !navOpen"></div>
-    <img src="assets/svg/brand-logo.svg" class="brand-logo">
+<div id="container" [ngClass]="{'menu': navOpen}">
+    <div id="blurred-header"></div>
+    <img src="assets/svg/brand-logo.svg" id="brand-logo">
+    <div id="menu-btn" (click)="toggleNav()"></div>
 
-    <div id="nav-container">
+    <div #navContainer id="nav-container">
         <div id="nav">
             <ul>
                 <li *ngFor="let route of routes">
-                    <a [routerLink]="route.path"
-                    routerLinkActive="route-active"
-                    (click)="navOpen = false">
-                    {{ route.title }}
+                    <a [routerLink]="route.path" routerLinkActive="route-active" (click)="navOpen = false">
+                        {{ route.title }}
                     </a>
                 </li>
             </ul>
@@ -20,19 +19,17 @@
                 <a href="{{environment.githubUrl}}" target="_blank">
                     <img src="assets/svg/github-logo-white.svg" class="social-logo">
                 </a>
-                  <a href="{{environment.linkedInUrl}}" target="_blank">
-                    <img src="assets/svg/linkedIn-logo.svg" class="social-logo">
+                <a href="{{environment.linkedInUrl}}" target="_blank">
+                    <img src="assets/svg/linkedin-logo.svg" class="social-logo">
                 </a>
             </div>
-    
+
             <p id="copyright">&#169;2023 {{environment.author}}. All rights reserved.</p>
         </div>
     </div>
 
     <!-- CONTENT -->
-    <div id="content-container">
-        <div id="content">
-            <ng-content></ng-content>
-        </div>
+    <div #content id="content">
+        <ng-content></ng-content>
     </div>
 </div>

@@ -1,20 +1,13 @@
 import { AfterViewInit, Directive, ElementRef, Input } from '@angular/core';
 
 @Directive({
-    selector: '[typingAnimation]'
+    selector: '[appTypingAnimation]'
 })
 export class TypingAnimationDirective implements AfterViewInit {
-    @Input('typingAnimation') sentences!: string | string[];
+    
+    @Input('appTypingAnimation') sentences!: string | string[];
 
-    private textCursorBlinkingAnimation = [
-        { borderRightColor: '#ffffffbf' },
-        { borderRightColor: 'transparent' }
-    ];
-    private textCursorBlinkingTiming = {
-        duration: 1000,
-        iterations: Infinity
-    };
-    private typingAnimation: any;
+    private blinkingTextCursorAnimation: any;
 
     constructor(private elementRef: ElementRef) { }
 
@@ -24,14 +17,22 @@ export class TypingAnimationDirective implements AfterViewInit {
     }
 
     private setTypingAnimation(): void {
+        const blinkingTextCursorAnimationKeyframes = [
+            { borderRightColor: '#ffffffbf' },
+            { borderRightColor: 'transparent' }
+        ];
+        const blinkingTextCursorTiming = {
+            duration: 1000,
+            iterations: Infinity
+        };
         this.elementRef.nativeElement.setAttribute('style', 'border-right: 1px solid #ffffffbf');
-        this.typingAnimation = this.elementRef.nativeElement.animate(this.textCursorBlinkingAnimation, this.textCursorBlinkingTiming);
-        this.typingAnimation.pause();
+        this.blinkingTextCursorAnimation = this.elementRef.nativeElement.animate(blinkingTextCursorAnimationKeyframes, blinkingTextCursorTiming);
+        this.blinkingTextCursorAnimation.pause();
     }
 
     private async typeSentences(): Promise<void> {
         for (let i = 0; i < [this.sentences].flat().length; i++) {
-            this.typingAnimation.pause();
+            this.blinkingTextCursorAnimation.pause();
 
             await new Promise<void>(resolve => {
                 setTimeout(async () => {
@@ -41,7 +42,7 @@ export class TypingAnimationDirective implements AfterViewInit {
                 }, 500);
             });
 
-            this.typingAnimation.play();
+            this.blinkingTextCursorAnimation.play();
 
             await new Promise<void>(resolve => {
                 setTimeout(async () => {
