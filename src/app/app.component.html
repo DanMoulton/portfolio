@@ -1,11 +1,11 @@
 <div id="container">
     <!-- MOBILE -->
-    <app-nav *ifScreenSize="'small'">
+    <app-nav *appIfScreenSize="'small'">
         <router-outlet></router-outlet>
     </app-nav>
 
     <!-- TABLET & DESKTOP -->
-    <div *ifScreenSize="[ 'medium', 'large']">
+    <div *appIfScreenSize="[ 'medium', 'large']">
         <!-- HEADER -->
         <app-header></app-header>
 

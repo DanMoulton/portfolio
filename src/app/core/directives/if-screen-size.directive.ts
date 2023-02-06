@@ -5,13 +5,14 @@ import { Subscription } from 'rxjs';
 type ScreenSize = 'small' | 'medium' | 'large';
 
 @Directive({
-    selector: '[ifScreenSize]'
+    selector: '[appIfScreenSize]'
 })
 export class IfScreenSizeDirective implements OnDestroy {
-    @Input('ifScreenSize') set screenSize(sizes: ScreenSize | ScreenSize[]) {
+
+    @Input('appIfScreenSize') set screenSize(sizes: ScreenSize | ScreenSize[]) {
         this.subscription.unsubscribe();
         this.subscription = this.breakpointObserver.observe(this.getScreenSizesToObserve(sizes))
-                                                   .subscribe((state) => this.updateView(state));
+            .subscribe((state) => this.updateView(state));
     }
 
     private subscription = new Subscription();

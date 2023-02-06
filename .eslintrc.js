@@ -20,21 +20,14 @@ module.exports = {
     ],
     ignorePatterns: ['dist/', 'node_modules/'],
     rules: {
-        '@typescript-eslint/interface-name-prefix': 'off',
-        '@typescript-eslint/explicit-module-boundary-types': 'off',
+        '@typescript-eslint/interface-name-prefix': 0,
+        '@typescript-eslint/explicit-module-boundary-types': 0,
         '@typescript-eslint/no-explicit-any': 0,
-        '@typescript-eslint/no-non-null-assertion': 'off',
+        '@typescript-eslint/no-non-null-assertion': 0,
         '@typescript-eslint/no-unused-vars': [
             'error'
         ],
-        '@typescript-eslint/no-var-requires': 'off',
-        '@typescript-eslint/type-annotation-spacing': [
-            'error',
-            {
-                'before': false,
-                'after': true
-            }
-        ],
+        '@typescript-eslint/no-var-requires': 0,
         'arrow-spacing': 2,
         'camelcase': 2,
         'comma-spacing': 2,
@@ -89,7 +82,7 @@ module.exports = {
         'no-new-symbol': 2,
         'no-obj-calls': 2,
         'no-octal': 2,
-        'no-prototype-builtins': 2,
+        'no-prototype-builtins': 0,
         'no-redeclare': 2,
         'no-regex-spaces': 2,
         'no-self-assign': 2,
@@ -103,7 +96,7 @@ module.exports = {
         'no-unsafe-finally': 2,
         'no-unsafe-negation': 2,
         'no-unused-labels': 2,
-        'no-unused-vars': 'off',
+        'no-unused-vars': 0,
         'no-useless-catch': 2,
         'no-useless-escape': 2,
         'no-with': 2,
