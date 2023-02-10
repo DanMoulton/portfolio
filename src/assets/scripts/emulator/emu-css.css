@@ -1130,8 +1130,10 @@ a.ejs--73f9b4e94a7a1fe74e11107d5ab2ef:hover{
     bottom:10px;
     height:30px;
     width:124px;
-    left:50%;
-    margin-left:-62px
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
 }
 .ejs--2440e3b831017ff8327c939e2a4413 .ejs--49fa47c86a131e4ca8fb268bfdde89 .ejs--6e7015634623fd6a82e6a7d3488c84{
     width:60px;
