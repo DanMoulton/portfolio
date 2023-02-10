@@ -3,7 +3,12 @@
 ///// Fonts /////
 @font-face {
     font-family: Exo2;
-    src: url("/assets/fonts/Rubik-VariableFont_wght.ttf") format("truetype");
+    src: url("/assets/fonts/Exo2.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: FuturaBlack;
+    src: url("/assets/fonts/FuturaBlack.ttf") format("truetype");
 }
 
 ///// Global styles /////
@@ -15,11 +20,75 @@ body {
     padding: 0;
     font-family: "Exo2";
     font-size: 0.9rem;
-    color: $brand-green !important;
+    color: $neutral-300 !important;
+    background: repeating-linear-gradient(90deg, transparent, transparent 2px, black 3px, black 3px);
+    background-color: $background !important;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+}
+
+a {
+    color: $primary-100;
+    text-decoration: none;
+}
+a:hover {
+    cursor: pointer;
+}
+
+p {
+    font-size: 1rem;
+    line-height: 1.3rem;
+}
+
+h1 {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: $primary-600;
+}
+
+.footer {
+    margin-top: auto;
+}
+
+.content-container {
+    padding: 22vh 8vw 2vh 8vw;
+}
+
+.title {
+    font-size: 2.6rem;
+    color: $primary-100;
+}
+
+.subtitle {
+    height: 3vh;
+    line-height: 3vh;
+    width: fit-content;
+    font-size: 1.3rem;
+    color: $primary-300;
+}
+
+.section-wrapper {
+    clip-path: polygon(0 0, 100% 0, 100% 25%, 99% 25%, 99% 3%, 98% 3px, 72% 3px, 70% 1px, 0 1px);
+    background-color: #61797140;
+    border-radius: 3px;
+    position: absolute;
+    margin-right: 20px;
+}
+    
+.section {
+    position: relative;
+    padding-bottom: 5vh;
+    border-top: 1px solid $primary-600-translucent;
+    z-index: 20;
+
+    h1 {
+        margin-top: -16px;
+    }
 }
 
 ///// Rules for content to display correctly in landscape mode on devices with notches /////

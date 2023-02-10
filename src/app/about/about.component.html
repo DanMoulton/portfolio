@@ -1,1 +1,34 @@
-<p>about works!</p>
+<app-game-emulator *ngIf="displayEmulator" id="emulator-container"
+    (closeEmulatorEvent)="displayEmulator = false"></app-game-emulator>
+
+<div class="content-container" [ngClass]="{'emulator-active': displayEmulator}">
+    <div id="intro">
+        <div class="title">
+            {{environment.author}}
+        </div>
+        <div [appTypingAnimation]="roles" class="subtitle"></div>
+        <p [innerText]="summary"></p>
+    </div>
+
+    <div id="about" class="section">
+        <h1>About me</h1>
+        <p [innerText]="about"></p>
+    </div>
+
+    <div class="section">
+        <h1>Skills</h1>
+        <p [innerText]="skillsDescription"></p>
+        <div id="skills">
+            <div *ngFor="let skill of skills" class="skill">
+                <img src="{{skill.iconPath}}" class="icon">
+                <div class="name">{{skill.name}}</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="interests" class="section">
+        <h1>Interests</h1>
+        <p [innerHtml]="interests"></p>
+        <p>While you're here, why not play some <a (click)="showEmulator()"> TETRIS</a>?</p>
+    </div>
+</div>

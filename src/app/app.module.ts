@@ -8,6 +8,7 @@ import { BlogComponent } from './blog/blog.component';
 import { ContactComponent } from './contact/contact.component';
 import { CoreModule } from './core/core.module';
 import { ExperienceComponent } from './experience/experience.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
     declarations: [
@@ -20,7 +21,8 @@ import { ExperienceComponent } from './experience/experience.component';
     imports: [
         BrowserModule,
         AppRoutingModule,
-        CoreModule
+        CoreModule,
+        SharedModule
     ],
     providers: [],
     bootstrap: [AppComponent]

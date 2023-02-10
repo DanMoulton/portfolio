@@ -218,8 +218,9 @@
 #content {
     position: absolute;
     z-index: 20;
+    height: 100%;
     max-height: 100%;
-    padding: 18vh 8vw 0 8vw;
+    width: 100%;
     @include transition(all 0.3s ease-in);
 
     @media (orientation: landscape) {
