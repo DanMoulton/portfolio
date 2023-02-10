@@ -41,7 +41,7 @@ const routes: Routes = [
 
 @Injectable({ providedIn: 'root' })
 export class TemplatePageTitleStrategy extends TitleStrategy {
-    constructor(private readonly title: Title) {
+    constructor(private title: Title) {
         super();
     }
 
