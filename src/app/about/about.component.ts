@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 
 import { environment } from '../../environments/environment';
 import { EventService } from '../shared/services/event-service.service';
@@ -8,8 +8,7 @@ import { EventService } from '../shared/services/event-service.service';
     templateUrl: './about.component.html',
     styleUrls: ['./about.component.scss']
 })
-export class AboutComponent implements OnInit {
-
+export class AboutComponent implements OnDestroy, OnInit {
     public environment = environment;
 
     public displayEmulator = false;
@@ -57,7 +56,7 @@ export class AboutComponent implements OnInit {
         this.hideElements();
     }
 
-    // On mobile devices only display the header when the window isn't scrolled to the top.
+    // On mobile devices only display the logo when the window isn't scrolled to the top.
     @HostListener('window:scroll', ['$event'])
     onScroll(): void {
         if (window.pageYOffset <= 10) {
@@ -67,25 +66,28 @@ export class AboutComponent implements OnInit {
         }
     }
 
+    private hideElements(): void {
+        document.getElementById('brand-logo')!.style.opacity = '0';
+        document.getElementById('about')!.classList.add('hidden');
+
+        this.elementsHidden = true;
+    }
+
     private showElements(): void {
-        document.getElementById('blur')!.style.visibility = 'visible';
         document.getElementById('brand-logo')!.style.opacity = '1';
         document.getElementById('about')!.classList.remove('hidden');
 
         this.elementsHidden = false;
     }
 
-    private hideElements(): void {
-        if (!this.eventService.navOpen) {
-            document.getElementById('blur')!.style.visibility = 'hidden';
-            document.getElementById('brand-logo')!.style.opacity = '0';
-            document.getElementById('about')!.classList.add('hidden');
-
-            this.elementsHidden = true;
-        }
-    }
-
     public showEmulator(): void {
         this.displayEmulator = true;
+    }
+
+    ngOnDestroy(): void {
+        // Reset the logo to be visible.
+        if (this.elementsHidden) {
+            document.getElementById('brand-logo')!.style.opacity = '1';
+        }
     }
 }
