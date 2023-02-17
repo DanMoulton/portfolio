@@ -6,19 +6,12 @@
     width: inherit;
 }
 
-.no-transition {
-    -webkit-transition: none !important;
-    -moz-transition: none !important;
-    -o-transition: none !important;
-    transition: none !important;
-}
-
 #container {
     height: 100%;
     width: 100%;
 }
 #container.menu {
-    #content-container {
+    #content {
         @include opacity(0.3);
         // @include scale(0.85);
     }
@@ -115,18 +108,21 @@
     #social {
         text-align: center;
 
+        #stack-overflow-logo {
+            height: 30px;
+            width: 30px;
+            margin: 7px;
+        }
+
         .social-logo {
             height: 24px;
             width: 24px;
-            margin: 1vh 3vw;
-
-            @media (orientation: landscape) {
-                margin: 1vh 2vw;
-            }
+            margin: 10px;
         }
     }
 
     #copyright {
+        margin-top: 0;
         padding-bottom: 2vh;
         text-align: center;
         font-size: 0.8rem;
@@ -145,6 +141,10 @@
             font-size: 1.4rem;
             font-weight: 300;
 
+            a {
+                color: $primary-100;
+            }
+
             @media (orientation: landscape) {
                 height: 10vh;
                 line-height: 10vh;
@@ -157,6 +157,7 @@
     position: fixed;
     height: 110px;
     width: 100%;
+    visibility: hidden;
     z-index: 30;
     backdrop-filter: blur(50px);
 }
@@ -178,10 +179,10 @@
     }
 }
 
-#content-container {
+#content {
     position: absolute;
     z-index: 20;
-    height: 100vh; 
+    height: 100vh;
     height: -webkit-fill-available;
     min-height: 100vh;
     width: 100%;
