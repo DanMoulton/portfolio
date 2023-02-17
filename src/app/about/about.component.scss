@@ -38,10 +38,6 @@ h1:after {
     transform: none !important;
 }
 
-.visible {
-    opacity: 1 !important;
-}
-
 .content-container {
     position: relative;
     z-index: 20;
@@ -49,7 +45,7 @@ h1:after {
 
     #intro {
         height: 46vh;
-        padding-top: 30vh;
+        margin-top: 10vh;
 
         .title {
             word-spacing: 100vw

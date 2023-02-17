@@ -11,14 +11,14 @@
     margin-bottom: 3vh;
 }
 
-#return-btn {
+#close-btn {
     height: 5%;
     width: 40%;
     margin: auto;
     text-align: center;
     font-size: 1.2rem;
-    color: $primary-100;
+    color: $primary-300;
 }
-#return-btn:hover {
+#close-btn:hover {
     cursor: pointer;
 }
