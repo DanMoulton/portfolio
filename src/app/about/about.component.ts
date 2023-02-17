@@ -1,17 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 
 import { environment } from '../../environments/environment';
+import { EventService } from '../shared/services/event-service.service';
 
 @Component({
     selector: 'app-about',
     templateUrl: './about.component.html',
     styleUrls: ['./about.component.scss']
 })
-export class AboutComponent {
+export class AboutComponent implements OnInit {
 
     public environment = environment;
 
     public displayEmulator = false;
+    private elementsHidden = true;
+
     public roles = ['Software engineer', 'Web developer', 'Full-stack developer'];
     public summary = 'I design and build software.\nI get stuff done on both the UI and backend.';
     public about = 'I\'m a software engineer with almost a decade of experience building applications ' +
@@ -46,7 +49,41 @@ export class AboutComponent {
         }
     ];
     public interests = 'I love travelling and exploring new places, I\'m a Liverpool FC and Boston Celtics supporter, ' +
-        'and in my spare time I mainly play videogames.';
+        'and of course I play a healthy dose of videogames.';
+
+    constructor(private eventService: EventService) { }
+
+    ngOnInit(): void {
+        this.hideElements();
+    }
+
+    // On mobile devices only display the header when the window isn't scrolled to the top.
+    @HostListener('window:scroll', ['$event'])
+    onScroll(): void {
+        if (window.pageYOffset <= 10) {
+            this.hideElements();
+        } else if (this.elementsHidden) {
+            this.showElements();
+        }
+    }
+
+    private showElements(): void {
+        document.getElementById('blur')!.style.visibility = 'visible';
+        document.getElementById('brand-logo')!.style.opacity = '1';
+        document.getElementById('about')!.classList.remove('hidden');
+
+        this.elementsHidden = false;
+    }
+
+    private hideElements(): void {
+        if (!this.eventService.navOpen) {
+            document.getElementById('blur')!.style.visibility = 'hidden';
+            document.getElementById('brand-logo')!.style.opacity = '0';
+            document.getElementById('about')!.classList.add('hidden');
+
+            this.elementsHidden = true;
+        }
+    }
 
     public showEmulator(): void {
         this.displayEmulator = true;

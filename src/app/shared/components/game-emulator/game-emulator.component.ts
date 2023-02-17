@@ -12,10 +12,11 @@ export class GameEmulatorComponent implements OnDestroy, OnInit {
 
     constructor(private renderer: Renderer2) { }
 
-    ngOnInit() {
-        window.document.getElementById('blurred-header')!.style.zIndex = '10';
+    ngOnInit(): void {
+        window.document.getElementById('blur')!.style.zIndex = '10';
         window.document.getElementById('brand-logo')!.style.zIndex = '10';
         window.document.getElementById('menu-btn')!.style.zIndex = '10';
+        window.document.getElementById('shader-layer')!.style.zIndex = '10';
 
         this.importEmulatorScripts();
     }
@@ -124,10 +125,11 @@ export class GameEmulatorComponent implements OnDestroy, OnInit {
         });
     }
 
-    ngOnDestroy() {
-        window.document.getElementById('blurred-header')!.style.zIndex = '30';
+    ngOnDestroy(): void {
+        window.document.getElementById('blur')!.style.zIndex = '30';
         window.document.getElementById('brand-logo')!.style.zIndex = '50';
-        window.document.getElementById('menu-btn')!.style.zIndex = '40';
+        window.document.getElementById('menu-btn')!.style.zIndex = '60';
+        window.document.getElementById('shader-layer')!.style.zIndex = '100';
 
         this.removeEmulatorScripts();
     }

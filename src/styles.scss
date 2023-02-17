@@ -1,32 +1,22 @@
+@import "app/shared/styles/fonts";
 @import "app/shared/styles/variables";
-
-///// Fonts /////
-@font-face {
-    font-family: Exo2;
-    src: url("/assets/fonts/Exo2.ttf") format("truetype");
-}
-
-@font-face {
-    font-family: FuturaBlack;
-    src: url("/assets/fonts/FuturaBlack.ttf") format("truetype");
-}
 
 ///// Global styles /////
 html,
 body {
-    height: 100%;
+    min-height: -webkit-fill-available;
     width: 100%;
     margin: 0;
     padding: 0;
-    font-family: "Exo2";
+    font-family: Exo2;
     font-size: 0.9rem;
-    color: $neutral-300 !important;
-    background: repeating-linear-gradient(90deg, transparent, transparent 2px, black 3px, black 3px);
+    color: $neutral-100 !important;
     background-color: $background !important;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    touch-action: manipulation;
 }
 
 a {
@@ -38,8 +28,8 @@ a:hover {
 }
 
 p {
-    font-size: 1rem;
-    line-height: 1.3rem;
+    font-size: 1.1rem;
+    line-height: 1.4rem;
 }
 
 h1 {
@@ -56,39 +46,31 @@ h1 {
 }
 
 .content-container {
-    padding: 22vh 8vw 2vh 8vw;
+    padding: 0 8vw 4vh 8vw;
 }
 
 .title {
-    font-size: 2.6rem;
+    margin-bottom: 3vh;
+    font-family: GillSansBoldItalic;
+    font-size: 3.5rem;
+    letter-spacing: -2px;
+    line-height: 3.8rem;
+    text-transform: uppercase;
+    transform: scaleY(1.2) skew(-5deg);
     color: $primary-100;
 }
 
 .subtitle {
-    height: 3vh;
-    line-height: 3vh;
+    height: 5vh;
     width: fit-content;
-    font-size: 1.3rem;
+    font-size: 2rem;
     color: $primary-300;
-}
-
-.section-wrapper {
-    clip-path: polygon(0 0, 100% 0, 100% 25%, 99% 25%, 99% 3%, 98% 3px, 72% 3px, 70% 1px, 0 1px);
-    background-color: #61797140;
-    border-radius: 3px;
-    position: absolute;
-    margin-right: 20px;
 }
     
 .section {
     position: relative;
-    padding-bottom: 5vh;
-    border-top: 1px solid $primary-600-translucent;
+    padding: 2vh 0 4vw;
     z-index: 20;
-
-    h1 {
-        margin-top: -16px;
-    }
 }
 
 ///// Rules for content to display correctly in landscape mode on devices with notches /////

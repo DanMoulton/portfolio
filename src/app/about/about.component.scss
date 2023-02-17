@@ -1,36 +1,5 @@
+@import "src/app/shared/styles/mixins";
 @import "src/app/shared/styles/variables";
-
-@mixin transition($params) {
-    -webkit-transition: $params;
-    -moz-transition: $params;
-    -khtml-transition: $params;
-    -o-transition: $params;
-    transition: $params;
-}
-
-@mixin scale($params) {
-    -webkit-transform: scale($params);
-    -moz-transform: scale($params);
-    -khtml-transform: scale($params);
-    -o-transform: scale($params);
-    transform: scale($params);
-}
-
-@mixin opacity($opacity) {
-    -webkit-opacity: $opacity;
-    -moz-opacity: $opacity;
-    -khtml-opacity: $opacity;
-    -o-opacity: $opacity;
-    opacity: $opacity;
-}
-
-@mixin animation($params) {
-    -webkit-animation: $params;
-    -moz-animation: $params;
-    -khtml-animation: $params;
-    -o-animation: $params;
-    animation: $params;
-}
 
 @keyframes fadein {
     from {
@@ -46,20 +15,65 @@ a {
     font-size: 0.9rem;
 }
 
+h1 {
+    white-space: pre;
+}
+h1:after {
+    content: "";
+    flex: 1 1;
+    margin: auto;
+    padding-top: 5px;
+    border-bottom: 1px solid $primary-600-translucent;
+}
+
+.no-scroll-reveal {
+    opacity: 1 !important;
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -o-transition: none !important;
+    transition: none !important;
+    -webkit-transform: none !important;
+    -moz-transform: none !important;
+    -o-transform: none !important;
+    transform: none !important;
+}
+
+.visible {
+    opacity: 1 !important;
+}
+
 .content-container {
     position: relative;
     z-index: 20;
     @include transition(all 0.3s ease-in);
 
     #intro {
-        padding-bottom: 8vh;
+        height: 46vh;
+        padding-top: 30vh;
+
+        .title {
+            word-spacing: 100vw
+        }
 
         p {
             margin: 2vh 0 0 0;
+            font-size: 1.4rem;
+            line-height: 1.8rem;
         }
     }
 
-    #skills {
+    #about {
+        opacity: 1;
+        transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+        transition: opacity 0.8s cubic-bezier(0.5, 0, 0, 1) 0s, transform 0.8s cubic-bezier(0.5, 0, 0, 1) 0s;
+    }
+    #about.hidden {
+        opacity: 0;
+        transform: matrix3d(0.9, 0, 0, 0, 0, 0.9, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+        transition: opacity 0.8s cubic-bezier(0.5, 0, 0, 1) 0s, transform 0.8s cubic-bezier(0.5, 0, 0, 1) 0s;
+    }
+
+    #skill-icons {
         display: flex;
         flex-flow: wrap;
         justify-content: center;
