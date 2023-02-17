@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { NgsRevealModule } from 'ngx-scrollreveal';
 
 import { AboutComponent } from './about/about.component';
 import { AppComponent } from './app.component';
@@ -22,6 +23,7 @@ import { SharedModule } from './shared/shared.module';
         BrowserModule,
         AppRoutingModule,
         CoreModule,
+        NgsRevealModule,
         SharedModule
     ],
     providers: [],

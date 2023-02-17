@@ -1,13 +1,13 @@
-<div id="container" [ngClass]="{'menu': navOpen}">
-    <div id="blurred-header"></div>
+<div id="container" [ngClass]="{'menu': eventService.navOpen}">
+    <div id="blur"></div>
     <img src="assets/svg/brand-logo.svg" id="brand-logo">
     <div id="menu-btn" (click)="toggleNav()"></div>
 
-    <div #navContainer id="nav-container">
+    <div id="nav-container">
         <div id="nav">
             <ul>
                 <li *ngFor="let route of routes">
-                    <a [routerLink]="route.path" routerLinkActive="route-active" (click)="navOpen = false">
+                    <a [routerLink]="route.path" routerLinkActive="route-active" (click)="hideNav()">
                         {{ route.title }}
                     </a>
                 </li>
@@ -29,7 +29,7 @@
     </div>
 
     <!-- CONTENT -->
-    <div #content id="content">
+    <div id="content-container">
         <ng-content></ng-content>
     </div>
 </div>

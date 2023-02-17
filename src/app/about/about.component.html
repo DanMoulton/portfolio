@@ -11,14 +11,14 @@
     </div>
 
     <div id="about" class="section">
-        <h1>About me</h1>
+        <h1>About me </h1>
         <p [innerText]="about"></p>
     </div>
 
-    <div class="section">
-        <h1>Skills</h1>
+    <div id="skills" class="section" ngsReveal>
+        <h1>Skills </h1>
         <p [innerText]="skillsDescription"></p>
-        <div id="skills">
+        <div id="skill-icons">
             <div *ngFor="let skill of skills" class="skill">
                 <img src="{{skill.iconPath}}" class="icon">
                 <div class="name">{{skill.name}}</div>
@@ -26,8 +26,8 @@
         </div>
     </div>
 
-    <div id="interests" class="section">
-        <h1>Interests</h1>
+    <div id="interests" class="section" ngsReveal>
+        <h1>Interests </h1>
         <p [innerHtml]="interests"></p>
         <p>While you're here, why not play some <a (click)="showEmulator()"> TETRIS</a>?</p>
     </div>

@@ -1,0 +1,48 @@
+///// Mixins /////
+@mixin transition($params) {
+    -webkit-transition: $params;
+    -moz-transition: $params;
+    -khtml-transition: $params;
+    -o-transition: $params;
+    transition: $params;
+}
+
+@mixin scale($params) {
+    -webkit-transform: scale($params);
+    -moz-transform: scale($params);
+    -khtml-transform: scale($params);
+    -o-transform: scale($params);
+    transform: scale($params);
+}
+
+@mixin rotate($params) {
+    -webkit-transform: rotate($params);
+    -moz-transform: rotate($params);
+    -khtml-transform: rotate($params);
+    -o-transform: rotate($params);
+    transform: rotate($params);
+}
+
+@mixin opacity($opacity) {
+    -webkit-opacity: $opacity;
+    -moz-opacity: $opacity;
+    -khtml-opacity: $opacity;
+    -o-opacity: $opacity;
+    opacity: $opacity;
+}
+
+@mixin box-shadow($box-shadow) {
+    -webkit-box-shadow: $box-shadow;
+    -moz-box-shadow: $box-shadow;
+    -khtml-box-shadow: $box-shadow;
+    -o-box-shadow: $box-shadow;
+    box-shadow: $box-shadow;
+}
+
+@mixin animation($params) {
+    -webkit-animation: $params;
+    -moz-animation: $params;
+    -khtml-animation: $params;
+    -o-animation: $params;
+    animation: $params;
+}
