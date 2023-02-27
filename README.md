@@ -1,9 +1,9 @@
 <div align="center">
-  <img alt="Logo" src="src/assets/svg/brand-logo.svg" width="150" />
+    <img alt="Logo" src="src/assets/svgs/brand-logo.svg" width="150" />
+    <br>
+    <br>
+    <h1>danmoulton.dev</h1>
 </div>
-
-<h1 style="text-align: center;">danmoulton.dev</h1>
-
 
 This is the repository for my personal website, created using [Angular](https://angular.io/) version 15.
 

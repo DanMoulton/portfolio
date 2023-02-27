@@ -1,1 +1,36 @@
-<p>experience works!</p>
+<div class="content-container">
+    <div ngsReveal class="section">
+        <h1>Experience</h1>
+        <p [innerText]="experienceIntro"></p>
+    </div>
+
+    <div id="jobs">
+        <div ngsReveal *ngFor="let job of jobs" class="job">
+            <div id="company">
+                <img src="{{ job.iconPath }}" class="icon">
+                <h3>{{ job.company }}</h3>
+            </div>
+
+            <div *ngFor="let role of job.roles" class="role">
+                <div class="role-name">{{ role.name }}</div>
+
+                <div class="chevron" (click)="role.expanded = !role.expanded">
+                    <svg *ngIf="!role.expanded; else invertedChevron" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                    <ng-template #invertedChevron>
+                        <svg viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </ng-template>
+                </div>
+
+                <div class="dates">
+                    {{ role.fromDate | date: 'MMM yyyy' }} - {{ isDate(role.toDate) ? (role.toDate | date: 'MMM yyyy') : role.toDate }}
+                </div>
+
+                <p [innerHtml]="role.description" class="description" [ngClass]="{'expanded': role.expanded}"></p>
+            </div>
+        </div>
+    </div>
+</div>

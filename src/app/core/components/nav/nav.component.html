@@ -1,6 +1,6 @@
 <div id="container" [ngClass]="{'menu': eventService.navOpen}">
     <div #blur id="blur"></div>
-    <img src="assets/svg/brand-logo.svg" id="brand-logo">
+    <img src="assets/svgs/brand-logo.svg" id="brand-logo">
     <div id="menu-btn" (click)="toggleNav()"></div>
 
     <div id="nav-container">
@@ -16,18 +16,18 @@
 
         <div class="footer">
             <div id="social">
-                <a href="{{environment.stackOverflowUrl}}" target="_blank">
-                    <img src="assets/svg/stack-overflow-logo.svg" id="stack-overflow-logo" class="social-logo">
+                <a href="{{ environment.stackOverflowUrl }}" target="_blank">
+                    <img src="assets/svgs/stack-overflow-logo.svg" id="stack-overflow-logo" class="social-logo">
                 </a>
-                <a href="{{environment.githubUrl}}" target="_blank">
-                    <img src="assets/svg/github-logo-white.svg" class="social-logo">
+                <a href="{{ environment.githubUrl }}" target="_blank">
+                    <img src="assets/svgs/github-logo.svg" class="social-logo">
                 </a>
-                <a href="{{environment.linkedInUrl}}" target="_blank">
-                    <img src="assets/svg/linkedin-logo.svg" class="social-logo">
+                <a href="{{ environment.linkedInUrl }}" target="_blank">
+                    <img src="assets/svgs/linkedin-logo.svg" class="social-logo">
                 </a>
             </div>
 
-            <p id="copyright">&#169;2023 {{environment.author}}. All rights reserved.</p>
+            <p id="copyright">&#169;2023 {{ environment.author }}. All rights reserved.</p>
         </div>
     </div>
 
