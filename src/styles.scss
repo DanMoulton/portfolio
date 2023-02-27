@@ -29,7 +29,19 @@ a:hover {
 
 p {
     font-size: 1.1rem;
-    line-height: 1.4rem;
+    line-height: 1.5rem;
+}
+
+ul {
+    margin-bottom: 0;
+    list-style-type: square;
+
+    li {
+        padding-bottom: 10px;
+    }
+    li:last-child {
+        padding-bottom: 0;
+    }
 }
 
 h1 {
@@ -41,12 +53,18 @@ h1 {
     color: $primary-600;
 }
 
+h3 {
+    margin: 0;
+}
+
 .footer {
     margin-top: auto;
 }
 
 .content-container {
-    padding: 20vh 8vw 4vh 8vw;
+    position: relative;
+    padding: 0 6vw 4vh;
+    z-index: 20;
 }
 
 .title {

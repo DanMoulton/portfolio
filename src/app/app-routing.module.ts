@@ -19,14 +19,14 @@ const routes: Routes = [
         title: 'Experience'
     },
     {
-        path: 'blog',
-        component: BlogComponent,
-        title: 'Blog'
-    },
-    {
         path: 'contact',
         component: ContactComponent,
         title: 'Contact'
+    },
+    {
+        path: 'blog',
+        component: BlogComponent,
+        title: 'Blog'
     },
     {
         path: '',
