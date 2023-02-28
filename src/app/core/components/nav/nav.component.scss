@@ -34,7 +34,7 @@
         right: 5vw;
     }
 
-    &:before {
+    &::before {
         position: absolute;
         height: 2px;
         width: 25px;
@@ -43,7 +43,7 @@
         content: "";
         @include transition(all 0.3s ease-in);
     }
-    &:after {
+    &::after {
         position: absolute;
         height: 2px;
         width: 25px;
@@ -62,12 +62,12 @@
     #menu-btn {
         border-color: transparent;
 
-        &:before {
+        &::before {
             width: 25px;
             left: -2px;
             @include rotate(45deg);
         }
-        &:after {
+        &::after {
             width: 25px;
             left: -2px;
             bottom: 10px;

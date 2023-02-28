@@ -1,32 +1,33 @@
 <app-game-emulator *ngIf="displayEmulator" id="emulator-container"
-    (closeEmulatorEvent)="displayEmulator = false"></app-game-emulator>
+    (closeEmulatorEvent)="closeEmulator()"></app-game-emulator>
 
 <div class="content-container" [ngClass]="{'emulator-active': displayEmulator}">
     <div id="intro">
-        <div class="title">
-            {{environment.author}}
+        <div id="author">
+            {{ environment.author }}
         </div>
-        <div [appTypingAnimation]="roles" class="subtitle"></div>
+        <div [appTypingAnimation]="roles" id="author-description"></div>
         <p [innerText]="summary"></p>
     </div>
 
-    <div id="about" class="section">
-        <h1>About me </h1>
+    <div id="about">
+        <div class="title">About me</div>
         <p [innerText]="about"></p>
     </div>
 
-    <div id="skills" class="section" ngsReveal>
+    <div ngsReveal id="skills" class="section">
         <h1>Skills </h1>
         <p [innerText]="skillsDescription"></p>
+
         <div id="skill-icons">
             <div *ngFor="let skill of skills" class="skill">
-                <img src="{{skill.iconPath}}" class="icon">
-                <div class="name">{{skill.name}}</div>
+                <img src="{{ skill.iconPath }}" class="icon">
+                <div class="name">{{ skill.name }}</div>
             </div>
         </div>
     </div>
 
-    <div id="interests" class="section" ngsReveal>
+    <div ngsReveal id="interests" class="section">
         <h1>Interests </h1>
         <p [innerHtml]="interests"></p>
         <p>While you're here, why not play some <a (click)="showEmulator()"> TETRIS</a>?</p>
