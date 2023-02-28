@@ -1,36 +1,62 @@
 <div class="content-container">
-    <div ngsReveal class="section">
-        <h1>Experience</h1>
+    <div ngsReveal id="experience">
+        <div class="title">Experience</div>
         <p [innerText]="experienceIntro"></p>
     </div>
 
-    <div id="jobs">
+    <div id="jobs" class="section">
         <div ngsReveal *ngFor="let job of jobs" class="job">
-            <div id="company">
+            <div id="company-wrapper">
                 <img src="{{ job.iconPath }}" class="icon">
-                <h3>{{ job.company }}</h3>
+
+                <div id="company">
+                    <h3>{{ job.company }}</h3>
+    
+                    <div *ngIf="job.roles.length === 1" class="role">
+                        <div class="role-name">{{ job.roles[0].name }}</div>
+        
+                        <div class="chevron" (click)="job.roles[0].expanded = !job.roles[0].expanded">
+                            <svg *ngIf="!job.roles[0].expanded; else invertedChevron" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
+                            <ng-template #invertedChevron>
+                                <svg viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd" />
+                                </svg>
+                            </ng-template>
+                        </div>
+
+                        <div class="dates">
+                            {{ job.roles[0].fromDate | date: 'MMM yyyy' }} - {{ isDate(job.roles[0].toDate) ? (job.roles[0].toDate | date: 'MMM yyyy') : job.roles[0].toDate }}
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div *ngFor="let role of job.roles" class="role">
-                <div class="role-name">{{ role.name }}</div>
+            <p *ngIf="job.roles.length === 1"  [innerHtml]="job.roles[0].description" class="single-role-description" [ngClass]="{'expanded': job.roles[0].expanded}"></p>
 
-                <div class="chevron" (click)="role.expanded = !role.expanded">
-                    <svg *ngIf="!role.expanded; else invertedChevron" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                    </svg>
-                    <ng-template #invertedChevron>
-                        <svg viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd" />
+            <ng-container *ngIf="job.roles.length > 1">
+                <div *ngFor="let role of job.roles" class="role">
+                    <div class="role-name">{{ role.name }}</div>
+
+                    <div class="chevron" (click)="role.expanded = !role.expanded">
+                        <svg *ngIf="!role.expanded; else invertedChevron" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                         </svg>
-                    </ng-template>
-                </div>
+                        <ng-template #invertedChevron>
+                            <svg viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd" />
+                            </svg>
+                        </ng-template>
+                    </div>
 
-                <div class="dates">
-                    {{ role.fromDate | date: 'MMM yyyy' }} - {{ isDate(role.toDate) ? (role.toDate | date: 'MMM yyyy') : role.toDate }}
-                </div>
+                    <div class="dates">
+                        {{ role.fromDate | date: 'MMM yyyy' }} - {{ isDate(role.toDate) ? (role.toDate | date: 'MMM yyyy') : role.toDate }}
+                    </div>
 
-                <p [innerHtml]="role.description" class="description" [ngClass]="{'expanded': role.expanded}"></p>
-            </div>
+                    <p [innerHtml]="role.description" class="description" [ngClass]="{'expanded': role.expanded}"></p>
+                </div>
+            </ng-container>
         </div>
     </div>
 </div>

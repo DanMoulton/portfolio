@@ -1,80 +1,104 @@
 @import "src/app/shared/styles/mixins";
 @import "src/app/shared/styles/variables";
 
-#jobs {
-    padding-top: 1vh;
-    border-left: 1px solid $primary-300;
-    // background-color: $neutral-100-translucent;
-
-    #company {
-        display: flex;
-        align-items: center;
-
-        .icon {
-            height: 40px;
-            margin-right: 1.2vh;
-            border: 1px solid $primary-300;
-            background-color: white;
-        }
-    }
-    #company:before {
-        content: "";
-        width: 4vw;
-        border-bottom: 1px solid $primary-300;
-    }
-
-    .job {
-        margin-bottom: 2vh;
-        
-        .role {
-            border-bottom: 1px solid $neutral-600-transulcent;
-            margin: 0 5vw;
-            padding: 2vh 0 0;
-    
-            .role-name {
-                display: inline-block;
-                width: 90%;
-                margin-bottom: 0.6vh;
-                font-size: 1.1rem;
-            }
-            .dates {
-                color: $primary-400;
-            }
-    
-            .description {
-                max-height: 0;
-                margin: 1.5vh 0;
-                overflow: hidden;
-                font-size: 1rem;
-                @include transition(max-height 0.3s ease-out);
-            }
-            .description.expanded {
-                max-height: 360px;
-                @include transition(max-height 0.3s ease-in);
-            }
-        }
-        .role:last-child {
-            border: none;
-            padding-bottom: 0;
-        }
-    }
-    .job:last-child {
-        margin-bottom: 0;
-    }
-}
-
-.chevron {
-    display: inline-block;
-    width: 10%;
-    vertical-align: top;
-    z-index: 20;
-
-    svg {
-        height: 25px;
-        width: 25px;
-    }
-}
-
 .content-container {
-    padding: 0vh 6vw 4vh;
+    padding-top: 20vh;
+
+    #experience {
+        padding-bottom: 8vw;
+    }
+
+    #jobs {
+        border-left: 1px solid $primary-300;
+        
+        #company-wrapper {
+            display: flex;
+            align-items: center;
+
+            #company {
+                width: -webkit-fill-available;
+                padding-left: 1vw;
+
+                p {
+                    margin: 0;
+                }
+
+                .role {
+                    margin: 0;
+                    padding: 0;
+                }
+            }
+
+            .icon {
+                height: 40px;
+                margin-right: 1.2vh;
+                border: 1px solid $primary-300;
+                background-color: white;
+            }
+
+            &::before {
+                content: "";
+                width: 4vw;
+                border-bottom: 1px solid $primary-300;
+            }
+        }
+
+        .job {
+            margin-bottom: 3vh;
+            
+            .role {
+                border-bottom: 1px solid $neutral-600-transulcent;
+                margin-left: 5vw;
+                padding: 2vh 0 0;
+        
+                .role-name {
+                    display: inline-block;
+                    margin-bottom: 0.6vh;
+                    font-size: 1.1rem;
+                }
+                .dates {
+                    color: $primary-400;
+                }
+
+                &:last-child {
+                    border: none;
+                    padding-bottom: 0;
+                }
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        .single-role-description {
+            max-height: 0;
+            margin: 2vh 5vw;
+            overflow: hidden;
+            font-size: 1rem;
+            @include transition(max-height 0.3s ease-out);
+        }
+        .description {
+            max-height: 0;
+            margin: 2vh 0;
+            overflow: hidden;
+            font-size: 1rem;
+            @include transition(max-height 0.3s ease-out);
+        }
+        .single-role-description.expanded, .description.expanded {
+            max-height: 360px;
+            @include transition(max-height 0.3s ease-in);
+        }
+    }
+
+    .chevron {
+        float: right;
+        vertical-align: top;
+        z-index: 20;
+
+        svg {
+            height: 25px;
+            width: 25px;
+        }
+    }
 }
