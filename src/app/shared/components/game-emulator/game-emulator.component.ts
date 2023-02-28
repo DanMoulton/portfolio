@@ -23,6 +23,7 @@ export class GameEmulatorComponent implements OnDestroy, OnInit {
 
     public importEmulatorScripts(): void {
         const emulatorConfigScript = this.renderer.createElement('script');
+        emulatorConfigScript.id = 'emulatorConfig';
         emulatorConfigScript.innerHTML = `
             EJS_player = '#game';
             EJS_biosUrl = '';
@@ -123,6 +124,7 @@ export class GameEmulatorComponent implements OnDestroy, OnInit {
         document.querySelectorAll('link[href*="emulator"]').forEach(element => {
             element.remove();
         });
+        document.getElementById('emulatorConfig')?.remove();
     }
 
     ngOnDestroy(): void {
