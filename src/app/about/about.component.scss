@@ -15,40 +15,32 @@ a {
     font-size: 0.9rem;
 }
 
-h1 {
-    white-space: pre;
-}
-h1:after {
-    content: "";
-    flex: 1 1;
-    margin: auto;
-    padding-top: 5px;
-    border-bottom: 1px solid $primary-600-translucent;
-}
-
-.no-scroll-reveal {
-    opacity: 1 !important;
-    -webkit-transition: none !important;
-    -moz-transition: none !important;
-    -o-transition: none !important;
-    transition: none !important;
-    -webkit-transform: none !important;
-    -moz-transform: none !important;
-    -o-transform: none !important;
-    transform: none !important;
-}
-
 .content-container {
-    position: relative;
-    z-index: 20;
+    padding-top: 18vh;
     @include transition(all 0.3s ease-in);
 
     #intro {
         height: 46vh;
-        margin-top: 10vh;
+        margin-top: 12vh;
 
-        .title {
-            word-spacing: 100vw
+        #author {
+            margin-bottom: 3vh;
+            padding-left: 5px;
+            font-family: GillSansBoldItalic;
+            font-size: 3.5rem;
+            letter-spacing: -2px;
+            line-height: 3.8rem;
+            text-transform: uppercase;
+            transform: scaleY(1.2) skew(-5deg);
+            color: $primary-100;
+            word-spacing: 100vw;
+        }
+
+        #author-description {
+            height: 5vh;
+            width: fit-content;
+            font-size: 2rem;
+            color: $primary-300;
         }
 
         p {
@@ -59,6 +51,7 @@ h1:after {
     }
 
     #about {
+        padding-bottom: 12vw;
         opacity: 1;
         transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
         transition: opacity 0.8s cubic-bezier(0.5, 0, 0, 1) 0s, transform 0.8s cubic-bezier(0.5, 0, 0, 1) 0s;
@@ -81,7 +74,7 @@ h1:after {
             .icon {
                 height: 45px;
                 margin-bottom: 1vh;
-                filter: grayscale(1);
+                filter: grayscale(0.6);
             }
 
             @media (max-width: 480px) {
@@ -97,9 +90,8 @@ h1:after {
 }
 
 .content-container.emulator-active {
-    position: fixed;
     @include opacity(0.3);
-    @include scale(0.85);
+    // @include scale(0.85);
 }
 
 #emulator-container {
