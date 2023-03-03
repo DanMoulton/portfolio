@@ -8,19 +8,19 @@ body {
     width: 100%;
     margin: 0;
     padding: 0;
-    font-family: Exo2;
+    font-family: $primary-font;
     font-size: 0.9rem;
     color: $neutral-100 !important;
-    background-color: $background !important;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
     touch-action: manipulation;
+    background-color: $background-secondary;
 }
 
 a {
-    color: $primary-300;
+    color: $primary-100;
     text-decoration: none;
 }
 a:hover {
@@ -49,13 +49,20 @@ h1 {
     display: flex;
     flex-direction: row;
     margin: 0;
-    font-size: 1.5rem;
+    // font-family: $primary-font;
+    font-size: 1.3rem;
     font-weight: 500;
+    text-transform: uppercase;
+    // transform: scaleY(1.1) skew(-5deg);
     color: $primary-600;
+    white-space: pre;
 }
 
 h3 {
     margin: 0;
+    font-family: $primary-font;
+    text-transform: uppercase;
+    transform: scaleY(1.1) skew(-5deg);
 }
 
 .footer {
@@ -63,35 +70,34 @@ h3 {
 }
 
 .title {
-    font-family: GillSansBoldItalic;
+    padding-left: 2px;
+    // font-family: $primary-font;
     font-size: 1.8rem;
     letter-spacing: -2px;
     color: $primary-600;
     text-transform: uppercase;
-    transform: scaleY(1.2) skew(-5deg);
+    // transform: scaleY(1.2) skew(-5deg);
+    border-bottom: 1px solid $primary-600-translucent;
+    margin-bottom: 3vh;
+    padding-bottom: 0.5vh;
 }
 
 .content-container {
     position: relative;
-    padding: 0 6vw 4vh;
+    padding: 20vh 6vw 6vh;
     z-index: 20;
 }
     
 .section {
     position: relative;
-    padding-bottom: 12vw;
+    margin-bottom: 12vw;
 
-    h1 {
-        color: $primary-100;
-        white-space: pre;
-
-        &::after {
-            content: "";
-            flex: 1 1;
-            margin: auto;
-            padding-top: 5px;
-            border-bottom: 1px solid $primary-600-translucent;
-        }
+    h1::after {
+        content: "";
+        flex: 1 1;
+        margin: auto;
+        padding-top: 5px;
+        border-bottom: 1px solid $primary-600-translucent;
     }
 
     &:last-child {

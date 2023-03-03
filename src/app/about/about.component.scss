@@ -24,15 +24,16 @@ a {
         margin-top: 12vh;
 
         #author {
-            margin-bottom: 3vh;
-            padding-left: 5px;
-            font-family: GillSansBoldItalic;
+            margin-bottom: 2vh;
+            // padding-left: 5px;
+            // font-family: $primary-font;
             font-size: 3.5rem;
-            letter-spacing: -2px;
+            // letter-spacing: -2px;
             line-height: 3.8rem;
             text-transform: uppercase;
-            transform: scaleY(1.2) skew(-5deg);
-            color: $primary-100;
+            // transform: scaleY(1.2) skew(-5deg);
+            color: transparent;
+            -webkit-text-stroke: 1px $primary-100;
             word-spacing: 100vw;
         }
 
@@ -51,7 +52,7 @@ a {
     }
 
     #about {
-        padding-bottom: 12vw;
+        padding: 6vh 0;
         opacity: 1;
         transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
         transition: opacity 0.8s cubic-bezier(0.5, 0, 0, 1) 0s, transform 0.8s cubic-bezier(0.5, 0, 0, 1) 0s;
@@ -65,6 +66,7 @@ a {
     #skill-icons {
         display: flex;
         flex-flow: wrap;
+        margin-top: 4vh;
         justify-content: center;
         text-align: center;
 

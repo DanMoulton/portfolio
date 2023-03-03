@@ -91,7 +91,7 @@
     min-height: -webkit-fill-available;
     width: 100vw;
     z-index: 10;
-    background-color: $primary-900-translucent;
+    background-color: $background-translucent;
     overflow: scroll;
     opacity: 0;
     @include transition(z-index 0.3s step-end);
@@ -131,18 +131,19 @@
 
     ul {
         padding: 0;
-        color: inherit;
         list-style-type: none;
 
         li {
-            height: 8vh;
-            line-height: 8vh;
             text-align: center;
+            // font-family: $primary-font;
             font-size: 1.4rem;
-            font-weight: 300;
+            line-height: 8vh;
+            text-transform: uppercase;
+            // transform: scaleY(1.2) skew(-5deg);
 
             a {
-                color: $primary-100;
+                color: transparent;
+                -webkit-text-stroke: 1px $primary-100;
             }
 
             @media (orientation: landscape) {

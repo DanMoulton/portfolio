@@ -56,7 +56,7 @@ export class AboutComponent implements OnDestroy, OnInit {
     // On mobile devices only display the logo when the window isn't scrolled to the top.
     @HostListener('window:scroll', ['$event'])
     onScroll(): void {
-        if (window.pageYOffset <= 10) {
+        if (window.pageYOffset <= 40) {
             this.hideElements();
         } else if (this.elementsHidden) {
             this.showElements();

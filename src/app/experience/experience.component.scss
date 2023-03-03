@@ -2,8 +2,6 @@
 @import "src/app/shared/styles/variables";
 
 .content-container {
-    padding-top: 20vh;
-
     #experience {
         padding-bottom: 8vw;
     }
@@ -44,12 +42,12 @@
         }
 
         .job {
-            margin-bottom: 3vh;
+            margin-bottom: 4vh;
             
             .role {
                 border-bottom: 1px solid $neutral-600-transulcent;
                 margin-left: 5vw;
-                padding: 2vh 0 0;
+                padding: 2vh 0;
         
                 .role-name {
                     display: inline-block;
@@ -73,32 +71,49 @@
 
         .single-role-description {
             max-height: 0;
-            margin: 2vh 5vw;
+            margin: 0 5vw;
+            // margin: 2vh 5vw;
             overflow: hidden;
             font-size: 1rem;
-            @include transition(max-height 0.3s ease-out);
+            @include transition(all 0.3s ease-out);
+            // display: none;
         }
         .description {
             max-height: 0;
-            margin: 2vh 0;
+            margin: 0;
+            // margin: 2vh 0;
             overflow: hidden;
             font-size: 1rem;
-            @include transition(max-height 0.3s ease-out);
+            @include transition(all 0.3s ease-out);
+            // display: none;
         }
         .single-role-description.expanded, .description.expanded {
             max-height: 360px;
-            @include transition(max-height 0.3s ease-in);
+            @include transition(all 0.3s ease-in);
+            
+            margin-top: 2vh;
+            margin-bottom: 2vh;
         }
     }
 
     .chevron {
         float: right;
-        vertical-align: top;
-        z-index: 20;
+        height: 40px;
+        width: 40px;
+        text-align: center;
 
-        svg {
-            height: 25px;
-            width: 25px;
+        img {
+            height: 12px;
+            width: 12px;
         }
+    }
+
+    #cv {
+        height: 22px;
+        width: 22px;
+    }
+    #cv-text {
+        display: inline-block;
+        margin-left: 1vw;
     }
 }
