@@ -16,8 +16,10 @@
     width: 40%;
     margin: auto;
     text-align: center;
+    font-family: $primary-font;
     font-size: 1.2rem;
-    color: $primary-300;
+    text-transform: uppercase;
+    color: $primary-100;
 }
 #close-btn:hover {
     cursor: pointer;
