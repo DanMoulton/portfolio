@@ -2,6 +2,7 @@ export const environment = {
     production: true,
 
     author: 'Dan Moulton',
+    email: 'dan.moulton@icloud.com',
     githubUrl: 'https://github.com/DanMoulton',
     stackOverflowUrl: 'https://stackoverflow.com/users/4077878/dan-moulton',
     linkedInUrl: 'https://www.linkedin.com/in/dan-moulton18/',

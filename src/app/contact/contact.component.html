@@ -1,1 +1,22 @@
-<p>contact works!</p>
+<div class="content-container">
+    <div ngsReveal id="contact">
+        <div class="title">Contact</div>
+        <p [innerText]="contactIntro"></p>
+
+        <div ngsReveal id="methods">
+            <div  *ngFor="let contactMethod of contactMethods" class="method">
+                <ng-container *ngIf="contactMethod.method === 'Email'; else social">
+                    <img src="{{ contactMethod.icon }}" class="contact-icon">
+                    <a [href]="'mailto:' + contactMethod.link" class="description">{{ contactMethod.description }}</a>
+                </ng-container>
+
+                <ng-template #social>
+                    <a href="{{ contactMethod.link }}" target="_blank">
+                        <img src="{{ contactMethod.icon }}" class="contact-icon">
+                        <p [innerHtml]="contactMethod.description" class="description"></p>
+                    </a>
+                </ng-template>
+            </div>
+        </div>
+    </div>
+</div>
