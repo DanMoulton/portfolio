@@ -1,0 +1,51 @@
+@import "src/app/shared/styles/mixins";
+@import "src/app/shared/styles/variables";
+
+#splash-screen-container {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: 80;
+
+    #logo {
+        position: absolute;
+        height: 150px;
+        width: 150px;
+        margin: auto;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 10;
+    }
+
+    #top-half,
+    #bottom-half {
+        position: absolute;
+        width: 100%;
+        height: 50%;
+        overflow: hidden;
+        background-color: $neutral-900;
+    }
+
+    #top-half {
+        top: 0;
+        animation: reveal 1s ease-in-out forwards;
+        animation-delay: 3s;
+    }
+
+    #bottom-half {
+        bottom: 0;
+        animation: reveal 1s ease-in-out forwards;
+        animation-delay: 3s;
+    }
+}
+
+@keyframes reveal {
+    0% {
+        height: 50%;
+    }
+    100% {
+        height: 0;
+    }
+}

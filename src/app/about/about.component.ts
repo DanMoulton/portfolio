@@ -1,6 +1,7 @@
 import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 
 import { environment } from '../../environments/environment';
+import { EventService } from '../shared/services/event-service.service';
 
 @Component({
     selector: 'app-about',
@@ -11,7 +12,7 @@ export class AboutComponent implements OnDestroy, OnInit {
     public environment = environment;
 
     public displayEmulator = false;
-    private elementsHidden = true;
+    private logoHidden = true;
 
     public roles = ['Software engineer', 'Web developer', 'Full-stack developer'];
     public summary = 'I design and build software.\nI get stuff done on both the UI and backend.';
@@ -49,32 +50,24 @@ export class AboutComponent implements OnDestroy, OnInit {
     public interests = 'I love travelling and exploring new places, I\'m a Liverpool FC and Boston Celtics supporter, ' +
         'and of course I play a healthy dose of videogames.';
 
+    constructor(public eventService: EventService) { }
+
     ngOnInit(): void {
-        this.hideElements();
+        this.hideLogo();
     }
 
-    // On mobile devices only display the logo when the window isn't scrolled to the top.
-    @HostListener('window:scroll', ['$event'])
-    onScroll(): void {
-        if (window.pageYOffset <= 40) {
-            this.hideElements();
-        } else if (this.elementsHidden) {
-            this.showElements();
-        }
-    }
-
-    private hideElements(): void {
+    private hideLogo(): void {
         document.getElementById('brand-logo')!.style.opacity = '0';
         document.getElementById('about')!.classList.add('hidden');
 
-        this.elementsHidden = true;
+        this.logoHidden = true;
     }
 
-    private showElements(): void {
+    private showLogo(): void {
         document.getElementById('brand-logo')!.style.opacity = '1';
         document.getElementById('about')!.classList.remove('hidden');
 
-        this.elementsHidden = false;
+        this.logoHidden = false;
     }
 
     public showEmulator(): void {
@@ -89,9 +82,19 @@ export class AboutComponent implements OnDestroy, OnInit {
         this.displayEmulator = false;
     }
 
+    // On mobile devices only display the logo when the window isn't scrolled to the top.
+    @HostListener('window:scroll', ['$event'])
+    onScroll(): void {
+        if (window.pageYOffset <= 40) {
+            this.hideLogo();
+        } else if (this.logoHidden) {
+            this.showLogo();
+        }
+    }
+
     ngOnDestroy(): void {
         // Reset the logo to be visible.
-        if (this.elementsHidden) {
+        if (this.logoHidden) {
             document.getElementById('brand-logo')!.style.opacity = '1';
         }
     }

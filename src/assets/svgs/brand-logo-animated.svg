@@ -1,28 +1,30 @@
-<!--?xml version="1.0" encoding="UTF-8" standalone="no"?-->
-
-
-<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 730 610" class="active">
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 730 610">
     <style>
         #path {
-            stroke-dasharray: 5907.82861328125px;            
-            animation: animate-logo 6s forwards;
+            stroke-dasharray: 5907.82861328125px;
+            stroke-dashoffset: 11815.6572265625px;
+            animation: animate-logo 6s none;
         }
         @keyframes animate-logo {
-        0% {
-            stroke-dashoffset: 11815.6572265625px;
-            fill: #50706b;
-        }
-        30% {
-            stroke-dashoffset: 11815.6572265625px;
-            fill: transparent;
-        }
-        100% {
-            stroke-dashoffset: 5907.82861328125px;
-            fill: transparent;
+            0% {
+                opacity: 0;
+            }
+            15% {
+                fill: #50706b;
+                opacity: 1;
+            }
+            30% {
+                stroke-dashoffset: 11815.6572265625px;
+                fill: transparent;
+            }
+            100% {
+                stroke-dashoffset: 5907.82861328125px;
+                fill: transparent;
+            }
         }
     </style>
 
-  <path id="path" stroke="#6fb9ad" stroke-width="10" d="M 486.00,106.00
+    <path id="path" fill="#50706b" stroke="#6fb9ad" stroke-width="10" d="M 486.00,106.00
            C 486.00,106.00 604.00,81.79 604.00,81.79
              604.00,81.79 644.00,73.58 644.00,73.58
              644.00,73.58 673.00,68.00 673.00,68.00
@@ -152,5 +154,5 @@
              301.00,493.00 276.00,482.72 276.00,482.72
              276.00,482.72 265.99,477.36 265.99,477.36
              265.99,477.36 265.00,470.00 265.00,470.00
-             265.00,470.00 265.00,277.00 265.00,277.00 Z"></path>
+             265.00,470.00 265.00,277.00 265.00,277.00 Z" />
 </svg>

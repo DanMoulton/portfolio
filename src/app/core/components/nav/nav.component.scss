@@ -90,8 +90,8 @@
     height: 100%;
     min-height: -webkit-fill-available;
     width: 100vw;
-    z-index: 10;
     background-color: $background-translucent;
+    z-index: 10;
     overflow: scroll;
     opacity: 0;
     @include transition(z-index 0.3s step-end);
@@ -101,7 +101,7 @@
         padding: 20vh 10vw 0 10vw;
 
         @media (orientation: landscape) {
-            padding: 22vh 8vw 0 8vw;
+            padding: 16vh 8vw 14vh 8vw;
         }
     }
 
@@ -137,7 +137,7 @@
             text-align: center;
             // font-family: $primary-font;
             font-size: 1.4rem;
-            line-height: 8vh;
+            line-height: 5rem;
             text-transform: uppercase;
             // transform: scaleY(1.2) skew(-5deg);
 
@@ -148,7 +148,7 @@
 
             @media (orientation: landscape) {
                 height: 10vh;
-                line-height: 10vh;
+                line-height: 6rem;
             }
         }
     }
@@ -159,8 +159,8 @@
     height: 110px;
     width: 100%;
     visibility: hidden;
-    z-index: 30;
     backdrop-filter: blur(50px);
+    z-index: 30;
 }
 
 #brand-logo {

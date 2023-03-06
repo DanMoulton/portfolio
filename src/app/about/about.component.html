@@ -6,7 +6,8 @@
         <div id="author">
             {{ environment.author }}
         </div>
-        <div [appTypingAnimation]="roles" id="author-description"></div>
+        <div *ngIf="eventService.splashScreenAnimationStarted" [appTypingAnimation]="roles" id="author-description">
+        </div>
         <p [innerText]="summary"></p>
     </div>
 
@@ -30,6 +31,6 @@
     <div ngsReveal id="interests" class="section">
         <h1>Interests </h1>
         <p [innerHtml]="interests"></p>
-        <p>While you're here, why not play some <a (click)="showEmulator()"> TETRIS</a>?</p>
+        <p>While you're here, why not play some <a (click)="showEmulator()">TETRIS</a>?</p>
     </div>
 </div>
