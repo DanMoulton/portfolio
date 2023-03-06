@@ -100,7 +100,7 @@ a {
     position: fixed;
     height: 100%;
     width: 100%;
-    z-index: 30;
     background-color: $primary-900-translucent;
+    z-index: 30;
     @include animation(fadein 0.6s);
 }

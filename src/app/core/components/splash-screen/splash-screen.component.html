@@ -1,0 +1,6 @@
+<div id="splash-screen-container">
+    <object type="image/svg+xml" data="assets/svgs/brand-logo-animated.svg" id="logo"></object>
+
+    <div id="top-half" (animationstart)="eventService.splashScreenAnimationStarted = true" (animationend)="animationEnd()"></div>
+    <div id="bottom-half"></div>
+</div>
