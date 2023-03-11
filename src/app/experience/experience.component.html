@@ -16,13 +16,9 @@
                         <div class="role-name">{{ job.roles[0].name }}</div>
         
                         <div class="chevron" (click)="job.roles[0].expanded = !job.roles[0].expanded">
-                            <svg *ngIf="!job.roles[0].expanded; else invertedChevron" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                            </svg>
+                            <img src="assets/svgs/arrow-down-icon.svg" *ngIf="!job.roles[0].expanded; else invertedChevron">
                             <ng-template #invertedChevron>
-                                <svg viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd" />
-                                </svg>
+                                <img src="assets/svgs/arrow-up-icon.svg">
                             </ng-template>
                         </div>
 
@@ -40,13 +36,9 @@
                     <div class="role-name">{{ role.name }}</div>
 
                     <div class="chevron" (click)="role.expanded = !role.expanded">
-                        <svg *ngIf="!role.expanded; else invertedChevron" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                        </svg>
+                        <img src="assets/svgs/arrow-down-icon.svg" *ngIf="!role.expanded; else invertedChevron">
                         <ng-template #invertedChevron>
-                            <svg viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd" />
-                            </svg>
+                            <img src="assets/svgs/arrow-up-icon.svg">
                         </ng-template>
                     </div>
 
@@ -59,4 +51,9 @@
             </ng-container>
         </div>
     </div>
+
+    <a href="assets/docs/cv.pdf" target="_blank">
+        <img src="assets/svgs/cv-icon.svg" id="cv">
+        <div id="cv-text">View CV</div>
+    </a>
 </div>
