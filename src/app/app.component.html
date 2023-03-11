@@ -2,8 +2,7 @@
 <div id="particles-js"></div>
 <div id="shader-layer"></div>
 
-<app-splash-screen *ngIf="eventService.splashScreenActive"
-    (animationEndEvent)="splashScreenAnimationEnd()"></app-splash-screen>
+<app-splash-screen *ngIf="splashScreenActive" (animationEndEvent)="splashScreenAnimationEnd()"></app-splash-screen>
 
 <div id="container">
     <!-- MOBILE -->

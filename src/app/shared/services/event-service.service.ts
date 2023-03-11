@@ -6,5 +6,4 @@ import { Injectable } from '@angular/core';
 export class EventService {
     public navOpen = false;
     public splashScreenAnimationStarted = false;
-    public splashScreenActive = false;
 }

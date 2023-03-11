@@ -76,10 +76,9 @@
     }
 
     #nav-container {
-        @include box-shadow(inset 0px 0px 5px 2px $primary-600-translucent);
-        z-index: 40;
         opacity: 1;
-        overflow: scroll;
+        z-index: 40;
+        @include box-shadow(inset 0px 0px 5px 2px $primary-600-translucent);
     }
 }
 
@@ -137,7 +136,7 @@
             text-align: center;
             // font-family: $primary-font;
             font-size: 1.4rem;
-            line-height: 5rem;
+            line-height: 4rem;
             text-transform: uppercase;
             // transform: scaleY(1.2) skew(-5deg);
 
