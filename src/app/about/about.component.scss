@@ -10,11 +10,6 @@
     }
 }
 
-a {
-    font-family: "FuturaBlack";
-    font-size: 0.9rem;
-}
-
 .content-container {
     padding-top: 18vh;
     @include transition(all 0.3s ease-in);
@@ -87,6 +82,13 @@ a {
             .icon {
                 filter: unset;
             }
+        }
+    }
+
+    #interests {
+        a {
+            font-family: "FuturaBlack";
+            font-size: 0.9rem;
         }
     }
 }
