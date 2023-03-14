@@ -47,7 +47,7 @@
     }
 
     #about {
-        padding: 6vh 0;
+        margin-top: 6vh;
         opacity: 1;
         transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
         transition: opacity 0.8s cubic-bezier(0.5, 0, 0, 1) 0s, transform 0.8s cubic-bezier(0.5, 0, 0, 1) 0s;
@@ -102,7 +102,7 @@
     position: fixed;
     height: 100%;
     width: 100%;
-    background-color: $primary-900-translucent;
+    background-color: $background-translucent;
     z-index: 30;
     @include animation(fadein 0.6s);
 }

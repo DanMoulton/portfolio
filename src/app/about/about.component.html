@@ -11,12 +11,12 @@
         <p [innerText]="summary"></p>
     </div>
 
-    <div id="about">
+    <div id="about" class="main-section">
         <div class="title">About me</div>
         <p [innerText]="about"></p>
     </div>
 
-    <div ngsReveal class="section">
+    <div ngsReveal class="sub-section">
         <h1>Skills </h1>
         <p [innerText]="skillsDescription"></p>
 
@@ -28,7 +28,7 @@
         </div>
     </div>
 
-    <div ngsReveal id="interests" class="section">
+    <div ngsReveal id="interests" class="sub-section">
         <h1>Interests </h1>
         <p [innerHtml]="interests"></p>
         <p>While you're here, why not play some <a (click)="showEmulator()">TETRIS</a>?</p>

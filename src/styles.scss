@@ -86,10 +86,14 @@ h3 {
     padding: 20vh 6vw 6vh;
     z-index: 20;
 }
+
+.main-section {
+    margin-bottom: 8vh;
+}
     
-.section {
+.sub-section {
     position: relative;
-    margin-bottom: 12vw;
+    margin-bottom: 6vh;
 
     h1::after {
         content: "";
