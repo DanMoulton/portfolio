@@ -1,10 +1,10 @@
 <div class="content-container">
-    <div ngsReveal id="experience">
+    <div ngsReveal class="main-section">
         <div class="title">Experience</div>
         <p [innerText]="experienceIntro"></p>
     </div>
 
-    <div id="jobs" class="section">
+    <div id="jobs" class="sub-section">
         <div ngsReveal *ngFor="let job of jobs" class="job">
             <div id="company-wrapper">
                 <img src="{{ job.iconPath }}" class="icon">
@@ -52,8 +52,10 @@
         </div>
     </div>
 
-    <a href="assets/docs/cv.pdf" target="_blank">
-        <img src="assets/svgs/cv-icon.svg" id="cv">
-        <div id="cv-text">View CV</div>
-    </a>
+    <div class="sub-section">
+        <a href="assets/docs/cv.pdf" target="_blank">
+            <img src="assets/svgs/cv-icon.svg" id="cv">
+            <div id="cv-text">View CV</div>
+        </a>
+    </div>
 </div>

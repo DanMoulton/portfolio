@@ -1,25 +1,25 @@
 .content-container {
-    #contact {
-        padding-bottom: 8vw;
+    .main-section {
+        margin-bottom: 6vh;
+    }
 
-        #methods {
-            margin-top: 5vh;
+    #methods {
+        margin-top: 4vh;
 
-            .method {
-                display: flex;
-                margin: 2vh 1vw;
-                vertical-align: middle;
+        .method {
+            display: flex;
+            margin: 2vh 1vw;
+            vertical-align: middle;
 
-                .contact-icon {
-                    height: 20px;
-                    width: 20px;
-                }
+            .contact-icon {
+                height: 20px;
+                width: 20px;
+            }
 
-                .description {
-                    display: inline-block;
-                    margin: 0 2vw;
-                    font-size: 1.1rem;
-                }
+            .description {
+                display: inline-block;
+                margin: 0 2vw;
+                font-size: 1.1rem;
             }
         }
     }

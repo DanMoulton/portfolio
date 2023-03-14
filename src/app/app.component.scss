@@ -17,8 +17,8 @@
     position: fixed;
     height: 100%;
     width: 100%;
-    background: repeating-linear-gradient(90deg, transparent, transparent 3px, #00000075 4px, #00000075 4px),
-        repeating-linear-gradient(0deg, transparent, transparent 3px, #00000075 4px, #00000075 4px);
+    background: repeating-linear-gradient(90deg, transparent, transparent 3px, #0000003d 5px, #0000003d 4px),
+        repeating-linear-gradient(0deg, transparent, transparent 3px, #0000003d 5px, #0000003d 3px);
     z-index: 100;
     pointer-events: none;
 }
