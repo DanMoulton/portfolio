@@ -1,6 +1,6 @@
-<div id="container" [ngClass]="{'menu': eventService.navOpen}">
+<div id="container" [ngClass]="{'menu': stateService.navOpen}">
     <div #blur id="blur"></div>
-    <img src="assets/svgs/brand-logo.svg" id="brand-logo">
+    <img #logo src="assets/svgs/brand-logo.svg" id="brand-logo">
     <div id="menu-btn" (click)="toggleNav()"></div>
 
     <div id="nav-container">

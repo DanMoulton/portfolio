@@ -1,22 +1,25 @@
-import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, OnDestroy, Renderer2, ViewChild } from '@angular/core';
 
 import { environment } from '../../environments/environment';
-import { EventService } from '../shared/services/event-service.service';
+import { StateService } from '../shared/services/state.service';
 
 @Component({
     selector: 'app-about',
     templateUrl: './about.component.html',
     styleUrls: ['./about.component.scss']
 })
-export class AboutComponent implements OnDestroy, OnInit {
+export class AboutComponent implements OnDestroy, AfterViewInit {
+    @ViewChild('about') aboutElement!: ElementRef;
+    
     public environment = environment;
 
+    private isScreenSizeSmall = false;
     public displayEmulator = false;
-    private logoHidden = true;
+    private logoVisible = false;
 
     public roles = ['Software engineer', 'Web developer', 'Full-stack developer'];
     public summary = 'I design and build software.\nI get stuff done on both the UI and backend.';
-    public about = 'I\'m a software engineer from England with almost a decade of experience building applications ' +
+    public aboutDescription = 'I\'m a software engineer from England with almost a decade of experience building applications ' +
         'for companies across many different industries.\n' +
         'I enjoy participating in all stages of software development, from design to implementation, ' +
         'and I love learning new technologies and applying them to interesting projects.';
@@ -47,37 +50,30 @@ export class AboutComponent implements OnDestroy, OnInit {
             name: 'SQL and NoSQL'
         }
     ];
-    public interests = 'I love travelling and exploring new places, I\'m a Liverpool FC and Boston Celtics supporter, ' +
+    public interestsDescription = 'I love travelling and exploring new places, I\'m a Liverpool FC and Boston Celtics supporter, ' +
         'and of course I play a healthy dose of videogames.';
 
-    constructor(public eventService: EventService) { }
+    constructor(private renderer: Renderer2, public stateService: StateService) { }
 
-    ngOnInit(): void {
-        this.hideLogo();
-    }
+    ngAfterViewInit(): void {
+        this.stateService.getScreenSizeSmallState$.subscribe((isScreenSizeSmall) => {
+            this.isScreenSizeSmall = isScreenSizeSmall;
+        });
 
-    private hideLogo(): void {
-        document.getElementById('brand-logo')!.style.opacity = '0';
-        document.getElementById('about')!.classList.add('hidden');
-
-        this.logoHidden = true;
-    }
-
-    private showLogo(): void {
-        document.getElementById('brand-logo')!.style.opacity = '1';
-        document.getElementById('about')!.classList.remove('hidden');
-
-        this.logoHidden = false;
+        if (this.isScreenSizeSmall) {
+            this.renderer.addClass(this.aboutElement.nativeElement, 'hidden');
+            this.stateService.setLogoVisibilityState(false);
+        }
     }
 
     public showEmulator(): void {
-        document.body.style.setProperty('overflow', 'hidden');
+        this.renderer.setStyle(document.body, 'overflow', 'hidden');
 
         this.displayEmulator = true;
     }
 
     public closeEmulator(): void {
-        document.body.style.removeProperty('overflow');
+        this.renderer.removeStyle(document.body, 'overflow');
 
         this.displayEmulator = false;
     }
@@ -85,17 +81,27 @@ export class AboutComponent implements OnDestroy, OnInit {
     // On mobile devices only display the logo when the window isn't scrolled to the top.
     @HostListener('window:scroll', ['$event'])
     onScroll(): void {
-        if (window.pageYOffset <= 40) {
-            this.hideLogo();
-        } else if (this.logoHidden) {
-            this.showLogo();
+        if (this.isScreenSizeSmall) {
+            if (window.pageYOffset <= 40) {
+                this.renderer.addClass(this.aboutElement.nativeElement, 'hidden');
+
+                this.stateService.setLogoVisibilityState(false);
+                this.logoVisible = false;
+            } else if (!this.logoVisible) {
+                this.renderer.removeClass(this.aboutElement.nativeElement, 'hidden');
+
+                this.stateService.setLogoVisibilityState(true);
+                this.logoVisible = true;
+            }
         }
     }
 
     ngOnDestroy(): void {
         // Reset the logo to be visible.
-        if (this.logoHidden) {
-            document.getElementById('brand-logo')!.style.opacity = '1';
+        if (this.isScreenSizeSmall) {
+            if (!this.logoVisible) {
+                this.stateService.setLogoVisibilityState(true);
+            }
         }
     }
 }
