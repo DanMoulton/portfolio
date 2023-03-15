@@ -2,6 +2,8 @@ import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/l
 import { Directive, Input, OnDestroy, TemplateRef, ViewContainerRef } from '@angular/core';
 import { Subscription } from 'rxjs';
 
+import { StateService } from '../../shared/services/state.service';
+
 type ScreenSize = 'small' | 'medium' | 'large';
 
 @Directive({
@@ -19,7 +21,8 @@ export class IfScreenSizeDirective implements OnDestroy {
 
     constructor(private breakpointObserver: BreakpointObserver,
         private templateRef: TemplateRef<any>,
-        private viewContainerRef: ViewContainerRef) { }
+        private viewContainerRef: ViewContainerRef,
+        private stateService: StateService) { }
 
 
     private getScreenSizesToObserve(sizes: string | ScreenSize[]): string[] {
@@ -41,6 +44,13 @@ export class IfScreenSizeDirective implements OnDestroy {
     private updateView(state: BreakpointState): void {
         if (state.matches && !this.viewContainerRef.length) {
             this.viewContainerRef.createEmbeddedView(this.templateRef);
+
+            if (state.breakpoints[Breakpoints.XSmall] || state.breakpoints[Breakpoints.Small]) {
+                this.stateService.setScreenSizeSmallState(true);
+            }
+            else {
+                this.stateService.setScreenSizeSmallState(false);
+            }
         } else if (!state.matches && this.viewContainerRef.length) {
             this.viewContainerRef.clear();
         }

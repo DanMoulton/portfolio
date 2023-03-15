@@ -6,14 +6,14 @@
         <div id="author">
             {{ environment.author }}
         </div>
-        <div *ngIf="eventService.splashScreenAnimationStarted" [appTypingAnimation]="roles" id="author-description">
+        <div *ngIf="(stateService.getSplashScreenAnimationFinishedState$ | async)" [appTypingAnimation]="roles" id="author-description">
         </div>
         <p [innerText]="summary"></p>
     </div>
 
-    <div id="about" class="main-section">
+    <div #about id="about" class="main-section">
         <div class="title">About me</div>
-        <p [innerText]="about"></p>
+        <p [innerText]="aboutDescription"></p>
     </div>
 
     <div ngsReveal class="sub-section">
@@ -30,7 +30,7 @@
 
     <div ngsReveal id="interests" class="sub-section">
         <h1>Interests </h1>
-        <p [innerHtml]="interests"></p>
+        <p [innerHtml]="interestsDescription"></p>
         <p>While you're here, why not play some <a (click)="showEmulator()">TETRIS</a>?</p>
     </div>
 </div>

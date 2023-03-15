@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { NgsRevealConfig } from 'ngx-scrollreveal';
 
@@ -18,22 +18,22 @@ export class AppComponent implements OnInit {
     ngOnInit(): void {
         particlesJS('particles-js', ParticlesConfig, null);
 
-        this.router.events.subscribe(event => {
+        this.router.events.subscribe((event) => {
             if (!this.splashScreenHasRendered && event instanceof NavigationEnd) {
-                document.body.style.setProperty('overflow', 'hidden');
+                this.renderer.setStyle(document.body, 'overflow', 'hidden');
                     
                 this.splashScreenActive = true;
             }
         });
     }
 
-    constructor(private router: Router, private scrollRevealConfig: NgsRevealConfig) {
+    constructor(private router: Router, private renderer: Renderer2, private scrollRevealConfig: NgsRevealConfig) {
         scrollRevealConfig.reset = false;
         scrollRevealConfig.duration = 600;
     }
 
     public splashScreenAnimationEnd(): void {
-        document.body.style.removeProperty('overflow');
+        this.renderer.removeStyle(document.body, 'overflow');
 
         this.splashScreenActive = false;
         this.splashScreenHasRendered = true;

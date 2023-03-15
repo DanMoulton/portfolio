@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 
-import { EventService } from '../../../shared/services/event-service.service';
+import { StateService } from '../../../shared/services/state.service';
 
 @Component({
     selector: 'app-splash-screen',
@@ -10,7 +10,7 @@ import { EventService } from '../../../shared/services/event-service.service';
 export class SplashScreenComponent {
     @Output() animationEndEvent = new EventEmitter<void>();
 
-    constructor(public eventService: EventService) { }
+    constructor(public stateService: StateService) { }
 
     public animationEnd(): void {
         this.animationEndEvent.emit();
