@@ -11,7 +11,7 @@
     </app-nav>
 
     <!-- TABLET & DESKTOP -->
-    <div *appIfScreenSize="[ 'medium', 'large']">
+    <ng-container *appIfScreenSize="[ 'medium', 'large']">
         <!-- HEADER -->
         <app-header></app-header>
 
@@ -20,5 +20,5 @@
 
         <!-- FOOTER -->
         <app-footer></app-footer>
-    </div>
+    </ng-container>
 </div>

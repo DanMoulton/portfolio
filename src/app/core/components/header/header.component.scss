@@ -1,7 +1,42 @@
-.header {
-    .logo {
-        height: 8%;
-        width: 8%;
-        margin: 1vh 1vw;
+@import "src/app/shared/styles/variables";
+
+:host {
+    z-index: 60;
+}
+
+#header {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    width: 95%;
+    padding: 1vh 1.5vw;
+
+    #brand-logo {
+        height: 130px;
+        width: 160px;
+    }
+
+    #nav {
+        margin-left: auto;
+
+        .route-active {
+            font-weight: bold;
+        }
+        .route-active:hover {
+            text-shadow: none;
+        }
+
+        a {
+            padding: 0 1vw;
+            border-right: 1px solid $neutral-600-transulcent;
+            font-size: 1.2rem;
+
+            &:last-child {
+                border-right: none;
+            }
+        }
+        a:hover {
+            text-shadow: $primary-300 0 0 3px;
+        }
     }
 }

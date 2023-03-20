@@ -1,4 +1,4 @@
-import { BehaviorSubject, Observable, ReplaySubject, Subject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -8,8 +8,8 @@ export class StateService {
     public navOpen = false;
 
     private screenSizeSmallSubject = new BehaviorSubject<boolean>(false);
-    private splashScreenAnimationSubject = new ReplaySubject<boolean>(1);
-    private logoVisibilitySubject = new Subject<boolean>();
+    private splashScreenAnimationSubject = new BehaviorSubject<boolean>(false);
+    private logoVisibilitySubject = new BehaviorSubject<boolean>(true);
 
     public setScreenSizeSmallState(value: boolean): void {
         this.screenSizeSmallSubject.next(value);
