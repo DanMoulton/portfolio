@@ -9,9 +9,11 @@
     position: fixed;
     display: flex;
     align-items: center;
-    width: 100%;
+    width: 96%;
     max-width: inherit;
-    padding: 1vh 0;
+    padding: 1vh 2%;
+    left: 50%;
+    transform: translate(-50%, 0);
 
     #brand-logo {
         height: 130px;
@@ -29,6 +31,9 @@
         }
 
         a {
+            display: inline-flex;
+            align-items: center;
+            height: 3vh;
             padding: 0 1vw;
             border-right: 1px solid $neutral-600-transulcent;
             font-size: 1.2rem;

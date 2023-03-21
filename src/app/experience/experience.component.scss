@@ -2,14 +2,53 @@
 @import "src/app/shared/styles/variables";
 
 .content-container {
-    #jobs {
-        border-left: 1px solid $primary-300;
-        
-        #company-wrapper {
+    align-items: flex-start;
+    flex-direction: column;
+    width: 50%;
+    margin: auto;
+
+    #jobs-container {
+        #jobs-md-lg {
+            display: flex;
+
+            #companies {
+                display: inline-block;
+                width: 27%;
+    
+                .company {
+                    display: flex;
+                    align-items: center;
+                    margin: 0;
+                    padding: 2vh 0;
+                    cursor: pointer;
+
+                    h3 {
+                        padding-right: 1vw;
+                    }
+                }
+                .company:hover {
+                    text-shadow: #6fb9ad 0 0 3px;
+                }
+                .selected-company {
+                    border-right: 3px solid $primary-600;
+                    text-shadow: #6fb9ad 0 0 3px;
+                }
+            }
+    
+            #roles {
+                display: inline-block;
+                height: 36vh;
+                width: 73%;
+                padding-left: 2vw;
+                border-left: 1px solid $primary-600-translucent;
+            }
+        }
+
+        .company-wrapper {
             display: flex;
             align-items: center;
 
-            #company {
+            .company-info {
                 width: -webkit-fill-available;
                 padding-left: 1vw;
 
@@ -23,41 +62,23 @@
                 }
             }
 
+            @media (max-width: 768px) {
+                &::before {
+                    content: "";
+                    width: 4vw;
+                    border-bottom: 1px solid $primary-300;
+                }
+            }
+        }
+
+        .company {
+            margin-bottom: 4vh;
+
             .icon {
                 height: 40px;
                 margin-right: 1.2vh;
                 border: 1px solid $primary-300;
                 background-color: white;
-            }
-
-            &::before {
-                content: "";
-                width: 4vw;
-                border-bottom: 1px solid $primary-300;
-            }
-        }
-
-        .job {
-            margin-bottom: 4vh;
-            
-            .role {
-                border-bottom: 1px solid $neutral-600-transulcent;
-                margin-left: 5vw;
-                padding: 2vh 0;
-        
-                .role-name {
-                    display: inline-block;
-                    margin-bottom: 0.6vh;
-                    font-size: 1.1rem;
-                }
-                .dates {
-                    color: $primary-400;
-                }
-
-                &:last-child {
-                    border: none;
-                    padding-bottom: 0;
-                }
             }
 
             &:last-child {
@@ -68,27 +89,66 @@
         .single-role-description {
             max-height: 0;
             margin: 0 5vw;
-            // margin: 2vh 5vw;
             overflow: hidden;
             font-size: 1rem;
             @include transition(all 0.3s ease-out);
-            // display: none;
         }
         .description {
-            max-height: 0;
-            margin: 0;
-            // margin: 2vh 0;
-            overflow: hidden;
+            margin: 1.5vh 0 0 0;
             font-size: 1rem;
-            @include transition(all 0.3s ease-out);
-            // display: none;
+
+            @media (max-width: 768px) {
+                margin: 0;
+                max-height: 0;
+                overflow: hidden;
+                @include transition(all 0.3s ease-out);
+            }
         }
         .single-role-description.expanded, .description.expanded {
             max-height: 360px;
-            @include transition(all 0.3s ease-in);
-            
             margin-top: 2vh;
-            margin-bottom: 2vh;
+            margin-bottom: 1vh;
+            @include transition(all 0.3s ease-in);
+        }
+            
+        .role {
+            border-bottom: 1px solid $neutral-600-transulcent;
+            padding: 2vh 0;
+    
+            .role-name {
+                display: inline-block;
+                margin-bottom: 0.6vh;
+                font-size: 1.3rem;
+
+                @media (max-width: 768px) {
+                    font-size: 1.1rem;
+                }
+            }
+
+            .dates {
+                color: $primary-400;
+                font-size: 1.1rem;
+
+                @media (max-width: 768px) {
+                    font-size: 0.9rem;
+                }
+            }
+
+            &:first-child {
+                padding-top: 0;
+            }
+            &:last-child {
+                border: none;
+                padding-bottom: 0;
+            }
+
+            @media (max-width: 768px) {
+                margin-left: 5vw;
+            }
+        }
+
+        @media (max-width: 768px) {
+            border-left: 1px solid $primary-300;
         }
     }
 
@@ -97,6 +157,7 @@
         height: 40px;
         width: 40px;
         text-align: center;
+        cursor: pointer;
 
         img {
             height: 12px;
@@ -111,5 +172,9 @@
     #cv-text {
         display: inline-block;
         margin-left: 1vw;
+    }
+
+    @media (max-width: 768px) {
+        width: auto;
     }
 }
