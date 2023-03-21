@@ -11,85 +11,125 @@
 }
 
 .content-container {
-    padding-top: 18vh;
     @include transition(all 0.3s ease-in);
 
     #intro {
-        height: 46vh;
-        margin-top: 12vh;
+        display: inline-block;
 
         #author {
             margin-bottom: 2vh;
-            // padding-left: 5px;
-            // font-family: $primary-font;
-            font-size: 3.5rem;
+            font-size: 5rem;
             // letter-spacing: -2px;
-            line-height: 3.8rem;
             text-transform: uppercase;
-            // transform: scaleY(1.2) skew(-5deg);
             color: transparent;
             -webkit-text-stroke: 1px $primary-100;
-            word-spacing: 100vw;
+            display: table-caption;
+    
+            @media (max-width: 768px) {
+                font-size: 3.5rem;
+                line-height: 3.8rem;
+            }
         }
 
         #author-description {
             height: 4vh;
             width: fit-content;
-            font-size: 2rem;
+            font-size: 2.5rem;
             color: $primary-300;
+    
+            @media (max-width: 768px) {
+                font-size: 2rem;
+            }
         }
 
         p {
             margin: 2vh 0 0 0;
             font-size: 1.4rem;
-            line-height: 1.8rem;
+        }
+    
+        @media (max-width: 768px) {
+            display: block;
+            width: 100%;
+            height: 46vh;
+            margin-top: 12vh;
+            
         }
     }
 
     #about {
-        margin-top: 6vh;
-        opacity: 1;
-        transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-        transition: opacity 0.8s cubic-bezier(0.5, 0, 0, 1) 0s, transform 0.8s cubic-bezier(0.5, 0, 0, 1) 0s;
-    }
-    #about.hidden {
-        opacity: 0;
-        transform: matrix3d(0.9, 0, 0, 0, 0, 0.9, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-        transition: opacity 0.8s cubic-bezier(0.5, 0, 0, 1) 0s, transform 0.8s cubic-bezier(0.5, 0, 0, 1) 0s;
-    }
+        display: inline-block;
+        width: 44%;
+        margin-left: 8vw;
+        padding-left: 4vw;
+        border-left: 1px solid $primary-600-translucent;
 
-    #skill-icons {
-        display: flex;
-        flex-flow: wrap;
-        margin-top: 4vh;
-        justify-content: center;
-        text-align: center;
-
-        .skill {
-            width: 75px;
-
-            .icon {
-                height: 45px;
-                margin-bottom: 1vh;
-                filter: grayscale(0.6);
-            }
-
-            @media (max-width: 480px) {
-                margin: 2vh 0;
+        .main-section {
+            opacity: 1;
+            transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+            transition: opacity 0.8s cubic-bezier(0.5, 0, 0, 1) 0s, transform 0.8s cubic-bezier(0.5, 0, 0, 1) 0s;
+    
+            @media (max-width: 768px) {
+                margin-top: 6vh;
             }
         }
-        .skill:hover {
-            .icon {
-                filter: unset;
+        .main-section.hidden {
+            opacity: 0;
+            transform: matrix3d(0.9, 0, 0, 0, 0, 0.9, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+            transition: opacity 0.8s cubic-bezier(0.5, 0, 0, 1) 0s, transform 0.8s cubic-bezier(0.5, 0, 0, 1) 0s;
+        }
+    
+        #skill-icons {
+            display: flex;
+            flex-flow: wrap;
+            margin-top: 4vh;
+            justify-content: center;
+            text-align: center;
+    
+            .skill {
+                width: 75px;
+    
+                .icon {
+                    height: 45px;
+                    margin-bottom: 1vh;
+                    filter: grayscale(0.6);
+                }
+    
+                @media (max-width: 768px) {
+                    margin: 2vh 0;
+                }
+            }
+            .skill:hover {
+                .icon {
+                    filter: unset;
+                }
             }
         }
-    }
-
-    #interests {
-        a {
-            font-family: "FuturaBlack";
-            font-size: 0.9rem;
+    
+        #interests {
+            a {
+                font-family: "FuturaBlack";
+                font-size: 0.9rem;
+            }
+        
+            p {
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
         }
+    
+        @media (max-width: 768px) {
+            display: block;
+            width: 100%;
+            margin-left: 0;
+            padding-left: 0;
+            border-left: none;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        display: block;
+        padding-top: 18vh;
     }
 }
 

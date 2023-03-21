@@ -11,26 +11,28 @@
         <p [innerText]="summary"></p>
     </div>
 
-    <div #about id="about" class="main-section">
-        <div class="title">About me</div>
-        <p [innerText]="aboutDescription"></p>
-    </div>
-
-    <div ngsReveal class="sub-section">
-        <h1>Skills </h1>
-        <p [innerText]="skillsDescription"></p>
-
-        <div id="skill-icons">
-            <div *ngFor="let skill of skills" class="skill">
-                <img src="{{ skill.iconPath }}" class="icon">
-                <div class="name">{{ skill.name }}</div>
+    <div ngsReveal id="about">
+        <div #about class="main-section">
+            <div class="title">About me</div>
+            <p [innerText]="aboutDescription"></p>
+        </div>
+    
+        <div ngsReveal class="sub-section">
+            <h1>Skills </h1>
+            <p [innerText]="skillsDescription"></p>
+    
+            <div id="skill-icons">
+                <div *ngFor="let skill of skills" class="skill">
+                    <img src="{{ skill.iconPath }}" class="icon">
+                    <div class="name">{{ skill.name }}</div>
+                </div>
             </div>
         </div>
-    </div>
-
-    <div ngsReveal id="interests" class="sub-section">
-        <h1>Interests </h1>
-        <p [innerHtml]="interestsDescription"></p>
-        <p>While you're here, why not play some <a (click)="showEmulator()">TETRIS</a>?</p>
+    
+        <div ngsReveal id="interests" class="sub-section">
+            <h1>Interests </h1>
+            <p [innerHtml]="interestsDescription"></p>
+            <p>While you're here, why not play some <a (click)="showEmulator()">TETRIS</a>?</p>
+        </div>
     </div>
 </div>
