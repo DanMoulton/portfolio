@@ -1,1 +1,15 @@
-<p>footer works!</p>
+<div class="footer">
+    <div>
+        <a href="{{ environment.stackOverflowUrl }}" target="_blank">
+            <img src="assets/svgs/stack-overflow-logo.svg" id="stack-overflow-logo" class="social-logo">
+        </a>
+        <a href="{{ environment.githubUrl }}" target="_blank">
+            <img src="assets/svgs/github-logo.svg" class="social-logo">
+        </a>
+        <a href="{{ environment.linkedInUrl }}" target="_blank">
+            <img src="assets/svgs/linkedin-logo.svg" class="social-logo">
+        </a>
+    </div>
+
+    <p id="copyright">&#169;2023 {{ environment.author }}. All rights reserved.</p>
+</div>
