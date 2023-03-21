@@ -4,51 +4,80 @@
         <p [innerText]="experienceIntro"></p>
     </div>
 
-    <div id="jobs" class="sub-section">
-        <div ngsReveal *ngFor="let job of jobs" class="job">
-            <div id="company-wrapper">
-                <img src="{{ job.iconPath }}" class="icon">
+    <div id="jobs-container" class="sub-section">
+        <!-- MOBILE -->
+        <ng-container *appIfScreenSize="'small'">
+            <div ngsReveal *ngFor="let company of companies" class="company">
+                <div class="company-wrapper">
+                    <img src="{{ company.iconPath }}" class="icon">
 
-                <div id="company">
-                    <h3>{{ job.company }}</h3>
-    
-                    <div *ngIf="job.roles.length === 1" class="role">
-                        <div class="role-name">{{ job.roles[0].name }}</div>
-        
-                        <div class="chevron" (click)="job.roles[0].expanded = !job.roles[0].expanded">
-                            <img src="assets/svgs/arrow-down-icon.svg" *ngIf="!job.roles[0].expanded; else invertedChevron">
+                    <div class="company-info">
+                        <h3>{{ company.name }}</h3>
+
+                        <div *ngIf="company.roles.length === 1" class="role">
+                            <div class="role-name">{{ company.roles[0].name }}</div>
+
+                            <div class="chevron" (click)="company.roles[0].expanded = !company.roles[0].expanded">
+                                <img src="assets/svgs/arrow-down-icon.svg"
+                                    *ngIf="!company.roles[0].expanded; else invertedChevron">
+                                <ng-template #invertedChevron>
+                                    <img src="assets/svgs/arrow-up-icon.svg">
+                                </ng-template>
+                            </div>
+
+                            <div class="dates">
+                                {{ company.roles[0].fromDate | date: 'MMM yyyy' }} - {{ isDate(company.roles[0].toDate) ? (company.roles[0].toDate | date: 'MMM yyyy') : company.roles[0].toDate }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <p *ngIf="company.roles.length === 1" [innerHtml]="company.roles[0].description"
+                    class="single-role-description" [ngClass]="{'expanded': company.roles[0].expanded}"></p>
+
+                <ng-container *ngIf="company.roles.length > 1">
+                    <div *ngFor="let role of company.roles" class="role">
+                        <div class="role-name">{{ role.name }}</div>
+
+                        <div class="chevron" (click)="role.expanded = !role.expanded">
+                            <img src="assets/svgs/arrow-down-icon.svg" *ngIf="!role.expanded; else invertedChevron">
                             <ng-template #invertedChevron>
                                 <img src="assets/svgs/arrow-up-icon.svg">
                             </ng-template>
                         </div>
 
                         <div class="dates">
-                            {{ job.roles[0].fromDate | date: 'MMM yyyy' }} - {{ isDate(job.roles[0].toDate) ? (job.roles[0].toDate | date: 'MMM yyyy') : job.roles[0].toDate }}
+                            {{ role.fromDate | date: 'MMM yyyy' }} - {{ isDate(role.toDate) ? (role.toDate | date: 'MMM yyyy') : role.toDate }}
                         </div>
+
+                        <p [innerHtml]="role.description" class="description" [ngClass]="{'expanded': role.expanded}">
+                        </p>
                     </div>
+                </ng-container>
+            </div>
+        </ng-container>
+
+        <!-- TABLET & DESKTOP -->
+        <div ngsReveal *appIfScreenSize="[ 'medium', 'large']" id="jobs-md-lg">
+            <div id="companies">
+                <div *ngFor="let company of companies" class="company"
+                    [ngClass]="{'selected-company': selectedCompany == company}" (click)="selectedCompany = company">
+                    <img src="{{ company.iconPath }}" class="icon">
+                    <h3>{{ company.name }}</h3>
                 </div>
             </div>
 
-            <p *ngIf="job.roles.length === 1"  [innerHtml]="job.roles[0].description" class="single-role-description" [ngClass]="{'expanded': job.roles[0].expanded}"></p>
-
-            <ng-container *ngIf="job.roles.length > 1">
-                <div *ngFor="let role of job.roles" class="role">
+            <div id="roles">
+                <div ngsReveal *ngFor="let role of selectedCompany.roles" class="role">
                     <div class="role-name">{{ role.name }}</div>
-
-                    <div class="chevron" (click)="role.expanded = !role.expanded">
-                        <img src="assets/svgs/arrow-down-icon.svg" *ngIf="!role.expanded; else invertedChevron">
-                        <ng-template #invertedChevron>
-                            <img src="assets/svgs/arrow-up-icon.svg">
-                        </ng-template>
-                    </div>
 
                     <div class="dates">
                         {{ role.fromDate | date: 'MMM yyyy' }} - {{ isDate(role.toDate) ? (role.toDate | date: 'MMM yyyy') : role.toDate }}
                     </div>
 
-                    <p [innerHtml]="role.description" class="description" [ngClass]="{'expanded': role.expanded}"></p>
+                    <p [innerHtml]="role.description" class="description"></p>
                 </div>
-            </ng-container>
+            </div>
         </div>
     </div>
 

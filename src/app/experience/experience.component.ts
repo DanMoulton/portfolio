@@ -9,9 +9,9 @@ export class ExperienceComponent {
     public experienceIntro = 'I have an Engineering degree in Computer Science and I\'ve been ' +
         'in the industry since 2014, working on many different projects in different capacities. ' +
         'Below are the places I\'ve worked.';
-    public jobs = [
+    public companies = [
         {
-            company: 'Moody\'s Analytics',
+            name: 'Moody\'s Analytics',
             roles: [
                 {
                     name: 'Asst. Director - Machine Learning',
@@ -34,7 +34,7 @@ export class ExperienceComponent {
             iconPath: 'assets/images/moodys-logo.jpeg'
         },
         {
-            company: 'Kin + Carta',
+            name: 'Kin + Carta',
             roles: [
                 {
                     name: 'Senior Software Engineer',
@@ -50,7 +50,7 @@ export class ExperienceComponent {
             iconPath: 'assets/images/kin-carta-logo.jpeg'
         },
         {
-            company: 'Freelance',
+            name: 'Freelance',
             roles: [
                 {
                     name: 'Full-Stack Developer',
@@ -65,6 +65,7 @@ export class ExperienceComponent {
             iconPath: 'assets/svgs/computer-icon.svg'
         }
     ];
+    public selectedCompany = this.companies[0];
 
     public isDate(value: string): boolean {
         return !isNaN(Date.parse(value));
