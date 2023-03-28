@@ -11,6 +11,7 @@
     position: fixed;
     height: 100vh;
     filter: blur(1px);
+    z-index: 30;
 }
 
 #shader-layer {
