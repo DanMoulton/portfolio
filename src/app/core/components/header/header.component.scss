@@ -1,3 +1,4 @@
+@import "src/app/shared/styles/mixins";
 @import "src/app/shared/styles/variables";
 
 :host {
@@ -18,6 +19,11 @@
     #brand-logo {
         height: 130px;
         width: 160px;
+        opacity: 1;
+        @include transition(all 0.3s ease-in);
+    }
+    #brand-logo.hidden {
+        opacity: 0;
     }
 
     #nav {

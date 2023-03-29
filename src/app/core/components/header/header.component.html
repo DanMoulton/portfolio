@@ -1,5 +1,7 @@
 <div id="header">
-    <img src="assets/svgs/brand-logo.svg" id="brand-logo">
+    <a [routerLink]="'/'">
+        <img #logo src="assets/svgs/brand-logo.svg" id="brand-logo">
+    </a>
 
     <div id="nav">
         <a [routerLink]="route.path" routerLinkActive="route-active" *ngFor="let route of routes">

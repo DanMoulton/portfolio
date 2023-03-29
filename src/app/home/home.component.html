@@ -1,0 +1,12 @@
+<div class="content-container">
+    <div ngsReveal id="intro">
+        <div id="author">
+            <!-- {{ environment.author }} -->
+            dAn Moulton
+        </div>
+        <div *ngIf="(stateService.getSplashScreenAnimationFinishedState$ | async)" [appTypingAnimation]="roles"
+            id="roles"></div>
+
+        <p [innerText]="summary" id="description"></p>
+    </div>
+</div>
