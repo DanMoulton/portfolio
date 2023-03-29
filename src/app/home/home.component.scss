@@ -1,0 +1,50 @@
+@import "src/app/shared/styles/mixins";
+@import "src/app/shared/styles/variables";
+
+.content-container {
+    @include transition(all 0.3s ease-in);
+
+    #intro {
+        display: inline-block;
+        text-align: center;
+
+        #author {
+            margin-bottom: 2vh;
+            font-family: $title-font;
+            font-size: 4rem;
+            text-shadow: $primary-100 0 0 3px;
+            
+            @media (max-width: 768px) {
+                font-size: 3.5rem;
+                line-height: 3.8rem;
+            }
+        }
+
+        #roles {
+            height: 5vh;
+            width: fit-content;
+            margin: auto;
+            font-family: 'Tomorrow', sans-serif;
+            font-size: 2rem;
+            color: $primary-300;
+    
+            @media (max-width: 768px) {
+                font-size: 2rem;
+            }
+        }
+
+        #description {
+            margin: 2vh 0 0 0;
+            padding-top: 1.3em;
+            border-top: 1px solid $primary-600-translucent;
+            font-size: 1.3rem;
+        }
+    
+        @media (max-width: 768px) {
+            display: block;
+            width: 100%;
+            height: 46vh;
+            margin-top: 12vh;
+        }
+    }
+}
