@@ -28,11 +28,11 @@ a:hover {
 }
 
 p {
-    font-size: 1.1rem;
-    line-height: 1.8rem;
+    font-size: 1.3rem;
+    line-height: 1.9rem;
     
     @media (max-width: 768px) {
-        line-height: 1.5rem;
+        line-height: 1.7rem;
     }
 }
 
@@ -49,23 +49,35 @@ ul {
     }
 }
 
-h1 {
+h2 {
     display: flex;
     flex-direction: row;
     margin: 0;
-    // font-family: $body-font;
-    font-size: 1.3rem;
-    font-weight: 500;
-    text-transform: uppercase;
-    // transform: scaleY(1.1) skew(-5deg);
-    color: $primary-600;
+    font-family: $title-font;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: transparent;
+    -webkit-text-stroke: 1px $primary-100-translucent;
     white-space: pre;
+    
+    @media (max-width: 768px) {
+        font-size: 1.3rem;
+    }
 }
 
 h3 {
     margin: 0;
-    font-family: $body-font;
-    text-transform: uppercase;
+    font-family: $title-font;
+    font-size: 1rem;
+    font-weight: normal;
+    color: transparent;
+    -webkit-text-stroke: 1px $primary-100-translucent;
+    line-height: 1.5rem;
+    text-transform: lowercase;
+    
+    @media (max-width: 768px) {
+        font-size: 1.1rem;
+    }
 }
 
 .footer {
@@ -75,14 +87,18 @@ h3 {
 
 .title {
     padding-left: 2px;
-    // font-family: $body-font;
-    font-size: 1.8rem;
-    letter-spacing: -2px;
-    color: $primary-600;
-    text-transform: uppercase;
+    font-family: $title-font;
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: transparent;
+    -webkit-text-stroke: 1px #b1e2dae3;
     border-bottom: 1px solid $primary-600-translucent;
     margin-bottom: 3vh;
     padding-bottom: 0.5vh;
+    
+    @media (max-width: 768px) {
+        font-size: 1.8rem;
+    }
 }
 
 .content-container {
@@ -91,10 +107,13 @@ h3 {
     align-items: center;
     justify-content: center;
     height: 100vh;
+    width: 55%;
+    margin: auto;
     z-index: 20;
 
     @media (max-width: 768px) {
         height: auto;
+        width: auto;
         padding: 20vh 6vw 6vh;
     }
 }
@@ -109,15 +128,15 @@ h3 {
     
 .sub-section {
     position: relative;
-    margin-bottom: 5vh;
+    margin-bottom: 3vh;
 
-    h1::after {
-        content: "";
-        flex: 1 1;
-        margin: auto;
-        padding-top: 5px;
-        border-bottom: 1px solid $primary-600-translucent;
-    }
+    // h2::after {
+    //     content: "";
+    //     flex: 1 1;
+    //     margin: auto;
+    //     padding-top: 5px;
+    //     border-bottom: 1px solid $primary-600-translucent;
+    // }
 
     &:last-child {
         margin-bottom: 0;
@@ -130,6 +149,14 @@ h3 {
 
     @media (max-width: 768px) {
         margin-bottom: 6vh;
+
+        h2::after {
+            content: "";
+            flex: 1 1;
+            margin: auto;
+            padding-top: 5px;
+            border-bottom: 1px solid $primary-600-translucent;
+        }
     }
 }
 

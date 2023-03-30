@@ -134,15 +134,13 @@
 
         li {
             text-align: center;
-            // font-family: $primary-font;
             font-size: 1.4rem;
             line-height: 4rem;
-            text-transform: uppercase;
-            // transform: scaleY(1.2) skew(-5deg);
 
             a {
                 color: transparent;
-                -webkit-text-stroke: 1px $primary-100;
+                font-family: $title-font;
+                -webkit-text-stroke: 1px $primary-100-translucent;
             }
 
             @media (orientation: landscape) {

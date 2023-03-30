@@ -9,15 +9,17 @@ import { BlogComponent } from './blog/blog.component';
 import { ContactComponent } from './contact/contact.component';
 import { CoreModule } from './core/core.module';
 import { ExperienceComponent } from './experience/experience.component';
+import { HomeComponent } from './home/home.component';
 import { SharedModule } from './shared/shared.module';
 
 @NgModule({
     declarations: [
         AppComponent,
         AboutComponent,
-        ExperienceComponent,
         BlogComponent,
-        ContactComponent
+        ContactComponent,
+        ExperienceComponent,
+        HomeComponent
     ],
     imports: [
         BrowserModule,
