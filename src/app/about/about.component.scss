@@ -15,26 +15,26 @@
 
     #intro {
         display: inline-block;
+        text-align: center;
 
         #author {
             margin-bottom: 2vh;
-            font-size: 5rem;
-            // letter-spacing: -2px;
-            text-transform: uppercase;
-            color: transparent;
-            -webkit-text-stroke: 1px $primary-100;
-            display: table-caption;
-    
+            font-family: $title-font;
+            font-size: 4rem;
+            text-shadow: $primary-100 0 0 3px;
+            
             @media (max-width: 768px) {
                 font-size: 3.5rem;
                 line-height: 3.8rem;
             }
         }
 
-        #author-description {
-            height: 4vh;
+        #roles {
+            height: 5vh;
             width: fit-content;
-            font-size: 2.5rem;
+            margin: auto;
+            font-family: 'Tomorrow', sans-serif;
+            font-size: 2rem;
             color: $primary-300;
     
             @media (max-width: 768px) {
@@ -42,66 +42,99 @@
             }
         }
 
-        p {
+        #description {
             margin: 2vh 0 0 0;
-            font-size: 1.4rem;
+            padding-top: 1.3em;
+            border-top: 1px solid $primary-600-translucent;
+            font-size: 1.3rem;
         }
     
         @media (max-width: 768px) {
             display: block;
-            width: 100%;
             height: 46vh;
             margin-top: 12vh;
-            
         }
     }
 
     #about {
         display: inline-block;
-        width: 44%;
-        margin-left: 8vw;
-        padding-left: 4vw;
-        border-left: 1px solid $primary-600-translucent;
 
         .main-section {
+            margin-top: 6vh;
             opacity: 1;
             transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
             transition: opacity 0.8s cubic-bezier(0.5, 0, 0, 1) 0s, transform 0.8s cubic-bezier(0.5, 0, 0, 1) 0s;
-    
-            @media (max-width: 768px) {
-                margin-top: 6vh;
-            }
         }
         .main-section.hidden {
             opacity: 0;
             transform: matrix3d(0.9, 0, 0, 0, 0, 0.9, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
             transition: opacity 0.8s cubic-bezier(0.5, 0, 0, 1) 0s, transform 0.8s cubic-bezier(0.5, 0, 0, 1) 0s;
         }
+
+        #profile-picture, #profile-picture-secondary {
+            position: relative;
+            float: left;
+            width: 28%;
+            margin: 1vh 4% 1vh 0;
+            border-radius: 8px;
+            @include transition(all 0.3s ease-in);
+        }
+        #profile-picture {
+            opacity: 1;
+            filter: blur(0);
+            z-index: 20;
+        }
+        #profile-picture:hover {
+            opacity: 0;
+            filter: blur(5px);
+            z-index: 10;
+        }
+        #profile-picture-secondary {
+            position: absolute;
+            left: 0;
+            z-index: 10;
+        }
+        #profile-picture-secondary:hover {
+            z-index: 20;
+        }
+
+        #about-description {
+            margin: 5vh 0 4vh;
+        }
     
-        #skill-icons {
-            display: flex;
-            flex-flow: wrap;
-            margin-top: 4vh;
-            justify-content: center;
-            text-align: center;
-    
-            .skill {
-                width: 75px;
-    
-                .icon {
-                    height: 45px;
-                    margin-bottom: 1vh;
-                    filter: grayscale(0.6);
+        #skills {
+            width: 68%;
+            margin-left: auto;
+
+            #skill-icons {
+                display: flex;
+                flex-flow: wrap;
+                margin-top: 4vh;
+                justify-content: center;
+                text-align: center;
+        
+                .skill {
+                    width: 75px;
+        
+                    .icon {
+                        height: 45px;
+                        margin-bottom: 1vh;
+                        filter: grayscale(0.6);
+                    }
+        
+                    @media (max-width: 768px) {
+                        margin: 2vh 0;
+                    }
                 }
-    
-                @media (max-width: 768px) {
-                    margin: 2vh 0;
+                .skill:hover {
+                    .icon {
+                        filter: unset;
+                    }
                 }
             }
-            .skill:hover {
-                .icon {
-                    filter: unset;
-                }
+        
+            @media (max-width: 768px) {
+                width: auto;
             }
         }
     
@@ -120,7 +153,6 @@
     
         @media (max-width: 768px) {
             display: block;
-            width: 100%;
             margin-left: 0;
             padding-left: 0;
             border-left: none;
