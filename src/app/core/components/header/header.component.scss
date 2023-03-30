@@ -30,9 +30,10 @@
         margin-left: auto;
 
         .route-active {
-            font-weight: bold;
+            text-decoration: underline;
         }
         .route-active:hover {
+            font-weight: normal;
             text-shadow: none;
         }
 
@@ -42,14 +43,18 @@
             height: 3vh;
             padding: 0 1vw;
             border-right: 1px solid $neutral-600-transulcent;
+            font-family: $title-font;
             font-size: 1.2rem;
+            color: transparent;
+            -webkit-text-stroke: 1px $primary-100-translucent;
 
             &:last-child {
                 border-right: none;
             }
         }
         a:hover {
-            text-shadow: $primary-300 0 0 3px;
+            font-weight: bold;
+            text-shadow: $primary-300 0 0 10px;
         }
     }
 }

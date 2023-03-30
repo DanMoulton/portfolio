@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class ExperienceComponent {
     public experienceIntro = 'I have an Engineering degree in Computer Science and I\'ve been ' +
         'in the industry since 2014, working on many different projects in different capacities. ' +
-        'Below are the places I\'ve worked.';
+        'Below are places I\'ve worked.';
     public companies = [
         {
             name: 'Moody\'s Analytics',

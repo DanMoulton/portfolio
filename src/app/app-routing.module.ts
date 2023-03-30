@@ -6,6 +6,7 @@ import { AboutComponent } from './about/about.component';
 import { BlogComponent } from './blog/blog.component';
 import { ContactComponent } from './contact/contact.component';
 import { ExperienceComponent } from './experience/experience.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
     {
@@ -19,23 +20,22 @@ const routes: Routes = [
         title: 'Experience'
     },
     {
-        path: 'contact',
-        component: ContactComponent,
-        title: 'Contact'
-    },
-    {
         path: 'blog',
         component: BlogComponent,
         title: 'Blog'
     },
     {
+        path: 'contact',
+        component: ContactComponent,
+        title: 'Contact'
+    },
+    {
         path: '',
-        redirectTo: '/about',
-        pathMatch: 'full'
+        component: HomeComponent
     },
     {
         path: '**',
-        component: AboutComponent
+        component: HomeComponent
     }
 ];
 
@@ -50,6 +50,8 @@ export class TemplatePageTitleStrategy extends TitleStrategy {
 
         if (title !== undefined) {
             this.title.setTitle(`Dan M | ${title}`);
+        } else {
+            this.title.setTitle('Dan M');
         }
     }
 }

@@ -4,7 +4,6 @@
 .content-container {
     align-items: flex-start;
     flex-direction: column;
-    width: 50%;
     margin: auto;
 
     #jobs-container {
@@ -17,21 +16,30 @@
     
                 .company {
                     display: flex;
+                    position: relative;
                     align-items: center;
                     margin: 0;
-                    padding: 2vh 0;
+                    padding: 1.5vh 0;
+                    left: 2px;
+                    border-right: 3px solid transparent;
                     cursor: pointer;
+                    @include transition(all 0.3s ease-in-out);
 
                     h3 {
                         padding-right: 1vw;
                     }
-                }
-                .company:hover {
-                    text-shadow: #6fb9ad 0 0 3px;
+                    h3:hover {
+                        font-weight: bold;
+                        text-shadow: $primary-300 0 0 10px;
+                    }
                 }
                 .selected-company {
                     border-right: 3px solid $primary-600;
-                    text-shadow: #6fb9ad 0 0 3px;
+
+                    h3 {
+                        font-weight: bold;
+                        text-shadow: $primary-300 0 0 10px;
+                    }
                 }
             }
     
@@ -90,17 +98,18 @@
             max-height: 0;
             margin: 0 5vw;
             overflow: hidden;
-            font-size: 1rem;
+            font-size: 1.1rem;
             @include transition(all 0.3s ease-out);
         }
         .description {
             margin: 1.5vh 0 0 0;
-            font-size: 1rem;
+            font-size: 1.1rem;
 
             @media (max-width: 768px) {
                 margin: 0;
                 max-height: 0;
                 overflow: hidden;
+                font-size: 1rem;
                 @include transition(all 0.3s ease-out);
             }
         }
@@ -118,10 +127,10 @@
             .role-name {
                 display: inline-block;
                 margin-bottom: 0.6vh;
-                font-size: 1.3rem;
+                font-size: 1.4rem;
 
                 @media (max-width: 768px) {
-                    font-size: 1.1rem;
+                    font-size: 1.2rem;
                 }
             }
 

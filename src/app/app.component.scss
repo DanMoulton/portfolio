@@ -11,17 +11,21 @@
     position: fixed;
     height: 100vh;
     filter: blur(1px);
-    z-index: 30;
 }
 
 #shader-layer {
     position: fixed;
     height: 100%;
     width: 100%;
-    background: repeating-linear-gradient(90deg, transparent, transparent 3px, #0000003d 5px, #0000003d 4px),
-        repeating-linear-gradient(0deg, transparent, transparent 3px, #0000003d 5px, #0000003d 3px);
+    background: repeating-linear-gradient(90deg, transparent, transparent 3px, #00000011 5px, #00000011 4px),
+        repeating-linear-gradient(0deg, transparent, transparent 3px, #00000011 5px, #00000011 3px);
     z-index: 100;
     pointer-events: none;
+
+    @media (max-width: 768px) {
+        background: repeating-linear-gradient(90deg, transparent, transparent 3px, #0000003d 5px, #0000003d 4px),
+            repeating-linear-gradient(0deg, transparent, transparent 3px, #0000003d 5px, #0000003d 3px);
+    }
 }
 
 #container {
