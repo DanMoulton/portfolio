@@ -2,25 +2,36 @@
     (closeEmulatorEvent)="closeEmulator()"></app-game-emulator>
 
 <div class="content-container" [ngClass]="{'emulator-active': displayEmulator}">
-    <div ngsReveal id="intro">
+    <div ngsReveal *appIfScreenSize="'small'" id="intro">
         <div id="author">
-            {{ environment.author }}
+            <!-- {{ environment.author }} -->
+            dAn Moulton
         </div>
-        <div *ngIf="(stateService.getSplashScreenAnimationFinishedState$ | async)" [appTypingAnimation]="roles" id="author-description">
-        </div>
-        <p [innerText]="summary"></p>
+        <div *ngIf="(stateService.getSplashScreenAnimationFinishedState$ | async)" [appTypingAnimation]="roles"
+            id="roles"></div>
+
+        <p [innerText]="summary" id="description"></p>
     </div>
 
     <div ngsReveal id="about">
-        <div #about class="main-section">
+        <div #about *appIfScreenSize="'small'" class="main-section">
             <div class="title">About me</div>
             <p [innerText]="aboutDescription"></p>
         </div>
-    
-        <div ngsReveal class="sub-section">
-            <h1>Skills </h1>
+
+        <ng-container *appIfScreenSize="[ 'medium', 'large']" >
+            <div class="title">About me</div>
+
+            <img src="assets/images/profile-1.jpg" id="profile-picture">
+            <img src="assets/images/profile-3.jpg" id="profile-picture-secondary">
+
+            <p id="about-description" [innerText]="aboutDescription"></p>
+        </ng-container>
+
+        <div ngsReveal id="skills" class="sub-section">
+            <h2>Skills </h2>
             <p [innerText]="skillsDescription"></p>
-    
+
             <div id="skill-icons">
                 <div *ngFor="let skill of skills" class="skill">
                     <img src="{{ skill.iconPath }}" class="icon">
@@ -28,9 +39,9 @@
                 </div>
             </div>
         </div>
-    
+
         <div ngsReveal id="interests" class="sub-section">
-            <h1>Interests </h1>
+            <h2>Interests </h2>
             <p [innerHtml]="interestsDescription"></p>
             <p>While you're here, why not play some <a (click)="showEmulator()">TETRIS</a>?</p>
         </div>
