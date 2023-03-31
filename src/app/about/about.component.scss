@@ -23,7 +23,7 @@
             font-size: 4rem;
             text-shadow: $primary-100 0 0 3px;
             
-            @media (max-width: 768px) {
+            @media only screen and (max-width: 768px) and (orientation: portrait), (max-width: 844px) and (orientation: landscape) {
                 font-size: 3.5rem;
                 line-height: 3.8rem;
             }
@@ -37,8 +37,12 @@
             font-size: 2rem;
             color: $primary-300;
     
-            @media (max-width: 768px) {
+            @media only screen and (max-width: 768px) and (orientation: portrait), (max-width: 844px) and (orientation: landscape) {
                 font-size: 2rem;
+            }
+
+            @media only screen and (max-width: 844px) and (orientation: landscape) {
+                height: 11vh;
             }
         }
 
@@ -49,10 +53,14 @@
             font-size: 1.3rem;
         }
     
-        @media (max-width: 768px) {
+        @media only screen and (max-width: 768px) and (orientation: portrait), (max-width: 844px) and (orientation: landscape) {
             display: block;
             height: 46vh;
             margin-top: 12vh;
+        }
+    
+        @media only screen and (max-width: 844px) and (orientation: landscape) {
+            height: 64vh;
         }
     }
 
@@ -122,7 +130,7 @@
                         filter: grayscale(0.6);
                     }
         
-                    @media (max-width: 768px) {
+                    @media only screen and (max-width: 768px) and (orientation: portrait), (max-width: 844px) and (orientation: landscape) {
                         margin: 2vh 0;
                     }
                 }
@@ -133,7 +141,7 @@
                 }
             }
         
-            @media (max-width: 768px) {
+            @media only screen and (max-width: 768px) and (orientation: portrait), (max-width: 844px) and (orientation: landscape) {
                 width: auto;
             }
         }
@@ -151,7 +159,7 @@
             }
         }
     
-        @media (max-width: 768px) {
+        @media only screen and (max-width: 768px) and (orientation: portrait), (max-width: 844px) and (orientation: landscape) {
             display: block;
             margin-left: 0;
             padding-left: 0;
@@ -159,7 +167,7 @@
         }
     }
     
-    @media (max-width: 768px) {
+    @media only screen and (max-width: 768px) and (orientation: portrait), (max-width: 844px) and (orientation: landscape) {
         display: block;
         padding-top: 18vh;
     }

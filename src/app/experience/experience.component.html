@@ -4,7 +4,7 @@
         <p [innerText]="experienceIntro"></p>
     </div>
 
-    <div id="jobs-container" class="sub-section">
+    <div ngsReveal id="jobs-container" class="sub-section">
         <!-- MOBILE -->
         <ng-container *appIfScreenSize="'small'">
             <div ngsReveal *ngFor="let company of companies" class="company">

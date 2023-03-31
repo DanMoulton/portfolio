@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { Router, Routes } from '@angular/router';
 
 import { environment } from '../../../../environments/environment';
@@ -9,7 +9,7 @@ import { StateService } from '../../../shared/services/state.service';
     templateUrl: './nav.component.html',
     styleUrls: ['./nav.component.scss']
 })
-export class NavComponent implements OnInit {
+export class NavComponent implements AfterViewInit, OnInit {
     @ViewChild('blur') blurElement!: ElementRef;
     @ViewChild('logo') logoElement!: ElementRef;
 
@@ -22,7 +22,9 @@ export class NavComponent implements OnInit {
 
     ngOnInit(): void {
         this.getRoutes(this.router.config);
+    }
 
+    ngAfterViewInit(): void {
         this.stateService.getLogoVisibilityState$.subscribe((visibility) => {
             if (visibility) {
                 this.renderer.setStyle(this.logoElement.nativeElement, 'opacity', '1');
