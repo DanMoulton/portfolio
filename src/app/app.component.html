@@ -16,7 +16,9 @@
         <app-header></app-header>
 
         <!-- CONTENT -->
-        <router-outlet></router-outlet>
+        <div [@routeAnimations]="getRouteAnimationData(outlet)">
+            <router-outlet #outlet="outlet"></router-outlet>
+        </div>
 
         <!-- FOOTER -->
         <app-footer></app-footer>
