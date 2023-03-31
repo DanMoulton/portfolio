@@ -10,7 +10,7 @@ import { StateService } from '../shared/services/state.service';
 })
 export class AboutComponent implements OnDestroy, AfterViewInit {
     @ViewChild('about') aboutElement!: ElementRef;
-    
+
     public environment = environment;
 
     private isScreenSizeSmall = false;

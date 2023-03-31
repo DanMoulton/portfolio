@@ -31,8 +31,8 @@ p {
     font-size: 1.3rem;
     line-height: 1.9rem;
     
-    @media (max-width: 768px) {
-        line-height: 1.7rem;
+    @media only screen and (max-width: 768px) and (orientation: portrait), (max-width: 844px) and (orientation: landscape) {
+        font-size: 1.1rem;
     }
 }
 
@@ -60,7 +60,7 @@ h2 {
     -webkit-text-stroke: 1px $primary-100-translucent;
     white-space: pre;
     
-    @media (max-width: 768px) {
+    @media only screen and (max-width: 768px) and (orientation: portrait), (max-width: 844px) and (orientation: landscape) {
         font-size: 1.3rem;
     }
 }
@@ -75,7 +75,7 @@ h3 {
     line-height: 1.5rem;
     text-transform: lowercase;
     
-    @media (max-width: 768px) {
+    @media only screen and (max-width: 768px) and (orientation: portrait), (max-width: 844px) and (orientation: landscape) {
         font-size: 1.1rem;
     }
 }
@@ -96,8 +96,12 @@ h3 {
     margin-bottom: 3vh;
     padding-bottom: 0.5vh;
     
-    @media (max-width: 768px) {
-        font-size: 1.8rem;
+    @media only screen and (max-width: 768px) and (orientation: portrait) {
+        font-size: 1.7rem;
+    }
+
+    @media only screen and (max-width: 844px) and (orientation: landscape) {
+        font-size: 1.5rem;
     }
 }
 
@@ -111,18 +115,28 @@ h3 {
     margin: auto;
     z-index: 20;
 
-    @media (max-width: 768px) {
+    @media only screen and (max-width: 768px) and (orientation: portrait) {
         height: auto;
         width: auto;
-        padding: 20vh 6vw 6vh;
+        padding: 23vh 6vw 6vh;
+    }
+
+    @media only screen and (max-width: 844px) and (orientation: landscape) {
+        height: auto;
+        width: 55%;
+        padding: 23vh 6vw 6vh;
     }
 }
 
 .main-section {
     margin-bottom: 6vh;
 
-    @media (max-width: 768px) {
+    @media only screen and (max-width: 768px) and (orientation: portrait) {
         margin-bottom: 8vh;
+    }
+
+    @media only screen and (max-width: 844px) and (orientation: landscape) {
+        margin-bottom: 12vh;
     }
 }
     
@@ -130,24 +144,16 @@ h3 {
     position: relative;
     margin-bottom: 3vh;
 
-    // h2::after {
-    //     content: "";
-    //     flex: 1 1;
-    //     margin: auto;
-    //     padding-top: 5px;
-    //     border-bottom: 1px solid $primary-600-translucent;
-    // }
-
     &:last-child {
         margin-bottom: 0;
         padding-bottom: 0;
 
-        @media (max-width: 768px) {
+        @media only screen and (max-width: 768px) and (orientation: portrait), (max-width: 844px) and (orientation: landscape) {
             margin-bottom: 6vh;
         }
     }
 
-    @media (max-width: 768px) {
+    @media only screen and (max-width: 768px) and (orientation: portrait), (max-width: 844px) and (orientation: landscape) {
         margin-bottom: 6vh;
 
         h2::after {
@@ -157,6 +163,10 @@ h3 {
             padding-top: 5px;
             border-bottom: 1px solid $primary-600-translucent;
         }
+    }
+
+    @media only screen and (max-width: 844px) and (orientation: landscape) {
+        margin-bottom: 10vh;
     }
 }
 

@@ -13,7 +13,7 @@
             #companies {
                 display: inline-block;
                 width: 27%;
-    
+
                 .company {
                     display: flex;
                     position: relative;
@@ -42,7 +42,7 @@
                     }
                 }
             }
-    
+
             #roles {
                 display: inline-block;
                 height: 36vh;
@@ -70,7 +70,7 @@
                 }
             }
 
-            @media (max-width: 768px) {
+            @media only screen and (max-width: 768px) and (orientation: portrait), (max-width: 844px) and (orientation: landscape) {
                 &::before {
                     content: "";
                     width: 4vw;
@@ -92,6 +92,10 @@
             &:last-child {
                 margin-bottom: 0;
             }
+
+            @media only screen and (max-width: 844px) and (orientation: landscape) {
+                margin-bottom: 8vh;
+            }
         }
 
         .single-role-description {
@@ -100,12 +104,16 @@
             overflow: hidden;
             font-size: 1.1rem;
             @include transition(all 0.3s ease-out);
+
+            @media only screen and (max-width: 844px) and (orientation: landscape) {
+                margin: 0 3vw;
+            }
         }
         .description {
             margin: 1.5vh 0 0 0;
             font-size: 1.1rem;
 
-            @media (max-width: 768px) {
+            @media only screen and (max-width: 768px) and (orientation: portrait), (max-width: 844px) and (orientation: landscape) {
                 margin: 0;
                 max-height: 0;
                 overflow: hidden;
@@ -113,23 +121,24 @@
                 @include transition(all 0.3s ease-out);
             }
         }
-        .single-role-description.expanded, .description.expanded {
+        .single-role-description.expanded,
+        .description.expanded {
             max-height: 360px;
             margin-top: 2vh;
             margin-bottom: 1vh;
             @include transition(all 0.3s ease-in);
         }
-            
+
         .role {
             border-bottom: 1px solid $neutral-600-transulcent;
             padding: 2vh 0;
-    
+
             .role-name {
                 display: inline-block;
                 margin-bottom: 0.6vh;
                 font-size: 1.4rem;
 
-                @media (max-width: 768px) {
+                @media only screen and (max-width: 768px) and (orientation: portrait), (max-width: 844px) and (orientation: landscape) {
                     font-size: 1.2rem;
                 }
             }
@@ -138,7 +147,7 @@
                 color: $primary-400;
                 font-size: 1.1rem;
 
-                @media (max-width: 768px) {
+                @media only screen and (max-width: 768px) and (orientation: portrait), (max-width: 844px) and (orientation: landscape) {
                     font-size: 0.9rem;
                 }
             }
@@ -151,12 +160,17 @@
                 padding-bottom: 0;
             }
 
-            @media (max-width: 768px) {
+            @media only screen and (max-width: 768px) and (orientation: portrait) {
                 margin-left: 5vw;
+            }
+
+            @media only screen and (max-width: 844px) and (orientation: landscape) {
+                margin-left: 3vw;
+                padding: 4vh 0;
             }
         }
 
-        @media (max-width: 768px) {
+        @media only screen and (max-width: 768px) and (orientation: portrait), (max-width: 844px) and (orientation: landscape) {
             border-left: 1px solid $primary-300;
         }
     }
@@ -183,7 +197,7 @@
         margin-left: 1vw;
     }
 
-    @media (max-width: 768px) {
+    @media only screen and (max-width: 768px) and (orientation: portrait) {
         width: auto;
     }
 }

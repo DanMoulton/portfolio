@@ -22,7 +22,7 @@
     z-index: 100;
     pointer-events: none;
 
-    @media (max-width: 768px) {
+    @media only screen and (max-width: 768px) and (orientation: portrait) {
         background: repeating-linear-gradient(90deg, transparent, transparent 3px, #0000003d 5px, #0000003d 4px),
             repeating-linear-gradient(0deg, transparent, transparent 3px, #0000003d 5px, #0000003d 3px);
     }
