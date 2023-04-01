@@ -4,7 +4,6 @@
 .content-container {
     align-items: flex-start;
     flex-direction: column;
-    margin: auto;
 
     #jobs-container {
         #jobs-md-lg {
@@ -13,6 +12,7 @@
             #companies {
                 display: inline-block;
                 width: 27%;
+                min-width: 240px;
 
                 .company {
                     display: flex;
@@ -45,7 +45,7 @@
 
             #roles {
                 display: inline-block;
-                height: 36vh;
+                min-height: 380px;
                 width: 73%;
                 padding-left: 2vw;
                 border-left: 1px solid $primary-600-translucent;
@@ -70,7 +70,7 @@
                 }
             }
 
-            @media only screen and (max-width: 768px) and (orientation: portrait), (max-width: 844px) and (orientation: landscape) {
+            @media (max-width: 960px) {
                 &::before {
                     content: "";
                     width: 4vw;
@@ -93,7 +93,10 @@
                 margin-bottom: 0;
             }
 
-            @media only screen and (max-width: 844px) and (orientation: landscape) {
+            @media (max-width: 960px) and (orientation: portrait) {
+                margin-bottom: 5vh;
+            }
+            @media (max-width: 960px) and (orientation: landscape) {
                 margin-bottom: 8vh;
             }
         }
@@ -105,19 +108,20 @@
             font-size: 1.1rem;
             @include transition(all 0.3s ease-out);
 
-            @media only screen and (max-width: 844px) and (orientation: landscape) {
+            @media (max-width: 960px) {
                 margin: 0 3vw;
+                font-size: 1rem;
             }
         }
         .description {
             margin: 1.5vh 0 0 0;
             font-size: 1.1rem;
 
-            @media only screen and (max-width: 768px) and (orientation: portrait), (max-width: 844px) and (orientation: landscape) {
+            @media (max-width: 960px) {
                 margin: 0;
                 max-height: 0;
-                overflow: hidden;
                 font-size: 1rem;
+                overflow: hidden;
                 @include transition(all 0.3s ease-out);
             }
         }
@@ -127,6 +131,10 @@
             margin-top: 2vh;
             margin-bottom: 1vh;
             @include transition(all 0.3s ease-in);
+
+            @media (max-width: 960px) {
+                max-height: fit-content;
+            }
         }
 
         .role {
@@ -138,7 +146,7 @@
                 margin-bottom: 0.6vh;
                 font-size: 1.4rem;
 
-                @media only screen and (max-width: 768px) and (orientation: portrait), (max-width: 844px) and (orientation: landscape) {
+                @media (max-width: 960px) {
                     font-size: 1.2rem;
                 }
             }
@@ -147,7 +155,7 @@
                 color: $primary-400;
                 font-size: 1.1rem;
 
-                @media only screen and (max-width: 768px) and (orientation: portrait), (max-width: 844px) and (orientation: landscape) {
+                @media (max-width: 960px) {
                     font-size: 0.9rem;
                 }
             }
@@ -160,17 +168,16 @@
                 padding-bottom: 0;
             }
 
-            @media only screen and (max-width: 768px) and (orientation: portrait) {
+            @media (max-width: 960px) and (orientation: portrait) {
                 margin-left: 5vw;
             }
-
-            @media only screen and (max-width: 844px) and (orientation: landscape) {
+            @media (max-width: 960px) and (orientation: landscape) {
                 margin-left: 3vw;
                 padding: 4vh 0;
             }
         }
 
-        @media only screen and (max-width: 768px) and (orientation: portrait), (max-width: 844px) and (orientation: landscape) {
+        @media (max-width: 960px) {
             border-left: 1px solid $primary-300;
         }
     }
@@ -197,7 +204,7 @@
         margin-left: 1vw;
     }
 
-    @media only screen and (max-width: 768px) and (orientation: portrait) {
+    @media (max-width: 960px) {
         width: auto;
     }
 }
