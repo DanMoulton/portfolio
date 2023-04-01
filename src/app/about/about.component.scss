@@ -15,6 +15,7 @@
 
     #intro {
         display: inline-block;
+        margin-bottom: 24vh;
         text-align: center;
 
         #author {
@@ -23,9 +24,12 @@
             font-size: 4rem;
             text-shadow: $primary-100 0 0 3px;
             
-            @media only screen and (max-width: 768px) and (orientation: portrait), (max-width: 844px) and (orientation: landscape) {
+            @media (max-width: 960px) {
                 font-size: 3.5rem;
                 line-height: 3.8rem;
+            }
+            @media (max-width: 280px) {
+                font-size: 3.2rem;
             }
         }
 
@@ -37,11 +41,13 @@
             font-size: 2rem;
             color: $primary-300;
     
-            @media only screen and (max-width: 768px) and (orientation: portrait), (max-width: 844px) and (orientation: landscape) {
+            @media (max-width: 960px) {
                 font-size: 2rem;
             }
-
-            @media only screen and (max-width: 844px) and (orientation: landscape) {
+            @media (max-width: 280px) {
+                font-size: 1.6rem;
+            }
+            @media (max-width: 960px) and (orientation: landscape) {
                 height: 11vh;
             }
         }
@@ -51,16 +57,19 @@
             padding-top: 1.3em;
             border-top: 1px solid $primary-600-translucent;
             font-size: 1.3rem;
+
+            @media (max-width: 280px) {
+                font-size: 1.1rem;
+            }
         }
     
-        @media only screen and (max-width: 768px) and (orientation: portrait), (max-width: 844px) and (orientation: landscape) {
+        @media (max-width: 960px) {
             display: block;
-            height: 46vh;
-            margin-top: 12vh;
+            width: fit-content;
+            margin: 12vh auto;
         }
-    
-        @media only screen and (max-width: 844px) and (orientation: landscape) {
-            height: 64vh;
+        @media (max-width: 960px) and (orientation: landscape) {
+            margin: 10vh auto 20vh;
         }
     }
 
@@ -82,10 +91,10 @@
         #profile-picture, #profile-picture-secondary {
             position: relative;
             float: left;
-            width: 28%;
+            width: 27%;
             margin: 1vh 4% 1vh 0;
             border-radius: 8px;
-            @include transition(all 0.3s ease-in);
+            @include transition(all 0.8s ease-in-out);
         }
         #profile-picture {
             opacity: 1;
@@ -130,7 +139,7 @@
                         filter: grayscale(0.6);
                     }
         
-                    @media only screen and (max-width: 768px) and (orientation: portrait), (max-width: 844px) and (orientation: landscape) {
+                    @media (max-width: 960px) {
                         margin: 2vh 0;
                     }
                 }
@@ -141,7 +150,7 @@
                 }
             }
         
-            @media only screen and (max-width: 768px) and (orientation: portrait), (max-width: 844px) and (orientation: landscape) {
+            @media (max-width: 960px) {
                 width: auto;
             }
         }
@@ -159,7 +168,7 @@
             }
         }
     
-        @media only screen and (max-width: 768px) and (orientation: portrait), (max-width: 844px) and (orientation: landscape) {
+        @media (max-width: 960px) {
             display: block;
             margin-left: 0;
             padding-left: 0;
@@ -167,7 +176,7 @@
         }
     }
     
-    @media only screen and (max-width: 768px) and (orientation: portrait), (max-width: 844px) and (orientation: landscape) {
+    @media (max-width: 960px) {
         display: block;
         padding-top: 18vh;
     }

@@ -29,7 +29,7 @@
     cursor: pointer;
     @include transition(all 0.3s ease-in);
 
-    @media only screen and (orientation: landscape) {
+    @media (orientation: landscape) {
         top: 8vh;
         right: 5vw;
     }
@@ -99,7 +99,7 @@
     #nav {
         padding: 23vh 10vw 0 10vw;
 
-        @media only screen and (orientation: landscape) {
+        @media (orientation: landscape) {
             padding: 14vh 8vw 14vh 8vw;
         }
     }
@@ -143,7 +143,7 @@
                 -webkit-text-stroke: 1px $primary-100-translucent;
             }
 
-            @media only screen and (orientation: landscape) {
+            @media (orientation: landscape) {
                 height: 10vh;
                 line-height: 6rem;
             }
@@ -159,7 +159,7 @@
     backdrop-filter: blur(50px);
     z-index: 30;
 
-    @media only screen and (orientation: landscape) {
+    @media (orientation: landscape) {
         display: none;
     }
 }
@@ -175,7 +175,7 @@
     z-index: 50;
     @include transition(all 0.3s ease-in);
 
-    @media only screen and (orientation: landscape) {
+    @media (orientation: landscape) {
         top: 2vh;
         left: 4vw;
     }
@@ -190,7 +190,7 @@
     width: 100%;
     @include transition(all 0.3s ease-in);
 
-    @media only screen and (orientation: landscape) {
+    @media (orientation: landscape) {
         padding: 18vh 4vw 0 4vw;
     }
 }

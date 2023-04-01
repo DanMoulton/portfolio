@@ -9,23 +9,23 @@
     left: 0;
     right: 0;
     bottom: 0;
-    margin-bottom: 1vh;
+    backdrop-filter: blur(50px);
 
     #stack-overflow-logo {
         height: 29px;
         width: 29px;
         margin: 4px;
     }
-    
+
     .social-logo {
         height: 22px;
         width: 22px;
         margin: 8px;
     }
-    
+
     #copyright {
         margin: 0;
         font-size: 0.8rem;
         color: $neutral-600;
-    }    
+    }
 }
