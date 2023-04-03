@@ -92,7 +92,7 @@
             position: relative;
             float: left;
             width: 27%;
-            margin: 1vh 4% 1vh 0;
+            margin: 1vh 4% 0 0;
             border-radius: 8px;
             @include transition(all 0.8s ease-in-out);
         }
@@ -104,23 +104,19 @@
         #profile-picture:hover {
             opacity: 0;
             filter: blur(5px);
-            z-index: 10;
         }
         #profile-picture-secondary {
             position: absolute;
             left: 0;
             z-index: 10;
         }
-        #profile-picture-secondary:hover {
-            z-index: 20;
-        }
 
         #about-description {
-            margin: 5vh 0 4vh;
+            margin: 4vh 0;
         }
     
         #skills {
-            width: 68%;
+            width: 69%;
             margin-left: auto;
 
             #skill-icons {
