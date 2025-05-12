@@ -6,54 +6,50 @@ import { StateService } from '../shared/services/state.service';
 @Component({
     selector: 'app-about',
     templateUrl: './about.component.html',
-    styleUrls: ['./about.component.scss']
+    styleUrls: ['./about.component.scss'],
 })
 export class AboutComponent implements OnDestroy, AfterViewInit {
     @ViewChild('about') aboutElement!: ElementRef;
 
     public environment = environment;
-
     private isScreenSizeSmall = false;
     public displayEmulator = false;
     private logoVisible = false;
-
     public roles = ['Software engineer', 'Web developer', 'Full-stack developer'];
     public summary = 'I design and build software.\nI get stuff done on both the UI and backend.';
-    public aboutDescription = 'I\'m a software engineer from England with almost a decade of experience building applications ' +
-        'for companies across many different industries.\n' +
-        'I enjoy participating in all stages of software development, from design to implementation, ' +
-        'and I love learning new technologies and applying them to interesting projects.';
+    public aboutDescription =
+        "I'm a software engineer from England with almost a decade of experience building applications for companies across many different industries.\nI enjoy participating in all stages of software development, from design to implementation, and I love learning new technologies and applying them to interesting projects.";
     public skillsDescription = 'Languages and frameworks I have the most experience with:';
     public skills = [
         {
             iconPath: 'assets/svgs/angular-logo.svg',
-            name: 'Angular'
+            name: 'Angular',
         },
         {
             iconPath: 'assets/svgs/nodejs-logo.svg',
-            name: 'NodeJS'
+            name: 'NodeJS',
         },
         {
             iconPath: 'assets/svgs/dotnet-logo.svg',
-            name: '.NET'
+            name: '.NET',
         },
         {
             iconPath: 'assets/svgs/java-logo.svg',
-            name: 'Java'
+            name: 'Java',
         },
         {
             iconPath: 'assets/svgs/python-logo.svg',
-            name: 'Python'
+            name: 'Python',
         },
         {
             iconPath: 'assets/svgs/database-icon.svg',
-            name: 'SQL and NoSQL'
-        }
+            name: 'SQL and NoSQL',
+        },
     ];
-    public interestsDescription = 'I love travelling and exploring new places, I\'m a Liverpool FC and Boston Celtics supporter, ' +
-        'and of course I play a healthy dose of videogames.';
+    public interestsDescription =
+        "I love travelling and exploring new places, I'm a Liverpool FC and Boston Celtics supporter, and of course I play a healthy dose of videogames! I have quite a large collection of games, with my favourite console being the GameCube.";
 
-    constructor(private renderer: Renderer2, public stateService: StateService) { }
+    constructor(private renderer: Renderer2, public stateService: StateService) {}
 
     ngAfterViewInit(): void {
         this.stateService.getScreenSizeSmallState$.subscribe((isScreenSizeSmall) => {

@@ -8,11 +8,11 @@
     #jobs-container {
         #jobs-md-lg {
             display: flex;
+            min-height: 570px;
 
             #companies {
                 display: inline-block;
-                width: 27%;
-                min-width: 240px;
+                width: 25%;
 
                 .company {
                     display: flex;
@@ -32,6 +32,10 @@
                         font-weight: bold;
                         text-shadow: $primary-300 0 0 10px;
                     }
+
+                    &:first-of-type {
+                        padding-top: 0;
+                    }
                 }
                 .selected-company {
                     border-right: 3px solid $primary-600;
@@ -46,7 +50,7 @@
             #roles {
                 display: inline-block;
                 min-height: 380px;
-                width: 73%;
+                width: 75%;
                 padding-left: 2vw;
                 border-left: 1px solid $primary-600-translucent;
             }
@@ -114,7 +118,7 @@
             }
         }
         .description {
-            margin: 1.5vh 0 0 0;
+            margin: 1.2vh 0 0 0;
             font-size: 1.1rem;
 
             @media (max-width: 960px) {

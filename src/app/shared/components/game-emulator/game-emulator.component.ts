@@ -1,22 +1,37 @@
-import { Component, EventEmitter, OnDestroy, OnInit, Output, Renderer2 } from '@angular/core';
+import {
+    Component,
+    EventEmitter,
+    OnDestroy,
+    OnInit,
+    Output,
+    Renderer2,
+} from '@angular/core';
 
 import { environment } from '../../../../environments/environment';
 
 @Component({
     selector: 'app-game-emulator',
     templateUrl: './game-emulator.component.html',
-    styleUrls: ['./game-emulator.component.scss']
+    styleUrls: ['./game-emulator.component.scss'],
 })
 export class GameEmulatorComponent implements OnDestroy, OnInit {
     @Output() closeEmulatorEvent = new EventEmitter<void>();
 
-    constructor(private renderer: Renderer2) { }
+    constructor(private renderer: Renderer2) {}
 
     ngOnInit(): void {
-        window.document.getElementById('blur')!.style.zIndex = '10';
-        window.document.getElementById('brand-logo')!.style.zIndex = '10';
-        window.document.getElementById('menu-btn')!.style.zIndex = '10';
-        window.document.getElementById('shader-layer')!.style.zIndex = '10';
+        if (window.document.getElementById('blur')) {
+            window.document.getElementById('blur')!.style.zIndex = '10';
+        }
+        if (window.document.getElementById('brand-logo')) {
+            window.document.getElementById('brand-logo')!.style.zIndex = '10';
+        }
+        if (window.document.getElementById('menu-btn')) {
+            window.document.getElementById('menu-btn')!.style.zIndex = '10';
+        }
+        if (window.document.getElementById('shader-layer')) {
+            window.document.getElementById('shader-layer')!.style.zIndex = '10';
+        }
 
         this.importEmulatorScripts();
     }
@@ -105,7 +120,7 @@ export class GameEmulatorComponent implements OnDestroy, OnInit {
             ]
         `;
         this.renderer.appendChild(document.head, emulatorConfigScript);
-    
+
         const emulatorLoaderScript = this.renderer.createElement('script');
         emulatorLoaderScript.src = 'assets/scripts/emulator/loader.js';
         this.renderer.appendChild(document.head, emulatorLoaderScript);
@@ -118,12 +133,16 @@ export class GameEmulatorComponent implements OnDestroy, OnInit {
     }
 
     public removeEmulatorScripts(): void {
-        document.querySelectorAll('script[src*="emulator"]').forEach(element => {
-            element.remove();
-        });
-        document.querySelectorAll('link[href*="emulator"]').forEach(element => {
-            element.remove();
-        });
+        document
+            .querySelectorAll('script[src*="emulator"]')
+            .forEach((element) => {
+                element.remove();
+            });
+        document
+            .querySelectorAll('link[href*="emulator"]')
+            .forEach((element) => {
+                element.remove();
+            });
         document.getElementById('emulatorConfig')?.remove();
     }
 

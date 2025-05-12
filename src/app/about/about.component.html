@@ -17,6 +17,18 @@
         <div #about *appIfScreenSize="'small'" class="main-section">
             <div class="title">About me</div>
             <p [innerText]="aboutDescription"></p>
+
+            <div ngsReveal class="skills sub-section">
+                <h2>skills </h2>
+                <p [innerText]="skillsDescription"></p>
+    
+                <div class="skill-icons">
+                    <div *ngFor="let skill of skills" class="skill">
+                        <img src="{{ skill.iconPath }}" class="icon">
+                        <div class="name">{{ skill.name }}</div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <ng-container *appIfScreenSize="[ 'medium', 'large']" >
@@ -26,19 +38,19 @@
             <img src="assets/images/profile-glitched.jpeg" id="profile-picture-secondary">
 
             <p id="about-description" [innerText]="aboutDescription"></p>
-        </ng-container>
 
-        <div ngsReveal id="skills" class="sub-section">
-            <h2>Skills </h2>
-            <p [innerText]="skillsDescription"></p>
-
-            <div id="skill-icons">
-                <div *ngFor="let skill of skills" class="skill">
-                    <img src="{{ skill.iconPath }}" class="icon">
-                    <div class="name">{{ skill.name }}</div>
+            <div ngsReveal class="skills sub-section">
+                <h2>skills </h2>
+                <p [innerText]="skillsDescription"></p>
+    
+                <div class="skill-icons">
+                    <div *ngFor="let skill of skills" class="skill">
+                        <img src="{{ skill.iconPath }}" class="icon">
+                        <div class="name">{{ skill.name }}</div>
+                    </div>
                 </div>
             </div>
-        </div>
+        </ng-container>
 
         <div ngsReveal id="interests" class="sub-section">
             <h2>Interests </h2>

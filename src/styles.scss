@@ -1,5 +1,5 @@
-@import "app/shared/styles/fonts";
-@import "app/shared/styles/variables";
+@import 'app/shared/styles/fonts';
+@import 'app/shared/styles/variables';
 
 ///// Global styles /////
 html,
@@ -10,6 +10,7 @@ body {
     padding: 0;
     font-family: $body-font;
     font-size: 0.9rem;
+    font-synthesis: none !important;
     color: $neutral-100 !important;
     background-color: $background-secondary;
     -webkit-user-select: none;
@@ -17,7 +18,7 @@ body {
     -ms-user-select: none;
     user-select: none;
     touch-action: manipulation;
-    -webkit-text-size-adjust: none ; 
+    -webkit-text-size-adjust: none;
 }
 
 a {
@@ -30,8 +31,8 @@ a:hover {
 
 p {
     font-size: 1.2rem;
-    line-height: 1.9rem;
-    
+    line-height: 1.8rem;
+
     @media (max-width: 960px) {
         font-size: 1.1rem;
     }
@@ -43,7 +44,7 @@ ul {
 
     li {
         padding-bottom: 8px;
-        
+
         &:last-child {
             padding-bottom: 0;
         }
@@ -60,7 +61,7 @@ h2 {
     color: transparent;
     -webkit-text-stroke: 1px $primary-100-translucent;
     white-space: pre;
-    
+
     @media (max-width: 960px) {
         font-size: 1.3rem;
     }
@@ -75,7 +76,7 @@ h3 {
     -webkit-text-stroke: 1px $primary-100-translucent;
     line-height: 1.5rem;
     text-transform: lowercase;
-    
+
     @media (max-width: 960px) {
         font-size: 1.1rem;
     }
@@ -96,7 +97,7 @@ h3 {
     border-bottom: 1px solid $primary-600-translucent;
     margin-bottom: 3vh;
     padding-bottom: 0.5vh;
-    
+
     @media (max-width: 960px) {
         font-size: 1.7rem;
     }
@@ -107,7 +108,8 @@ h3 {
     position: relative;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    top: 4vh;
+    height: 93vh;
     min-height: 900px;
     max-width: 920px;
     margin: auto;
@@ -119,10 +121,10 @@ h3 {
         width: auto;
     }
     @media (max-width: 960px) and (orientation: portrait) {
-        padding: 21vh 5vw 5vh;
+        padding: 16vh 5vw 5vh;
     }
     @media (max-width: 960px) and (orientation: landscape) {
-        padding: 40vh 8vw 6vh;
+        padding: 40vh 8vw 14vh;
     }
 }
 
@@ -136,25 +138,25 @@ h3 {
         margin-bottom: 9vh;
     }
 }
-    
+
 .sub-section {
     position: relative;
-    margin-bottom: 3vh;
+    margin-bottom: 2vh;
 
     &:last-child {
         margin-bottom: 0;
         padding-bottom: 0;
 
-        @media (max-width: 960px) {
-            margin-bottom: 6vh;
-        }
+        // @media (max-width: 960px) {
+        //     margin-bottom: 6vh;
+        // }
     }
 
     @media (max-width: 960px) {
         margin-bottom: 6vh;
 
         h2::after {
-            content: "";
+            content: '';
             flex: 1 1;
             margin: auto;
             padding-top: 5px;

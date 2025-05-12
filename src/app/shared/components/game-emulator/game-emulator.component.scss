@@ -1,8 +1,17 @@
-@import "src/app/shared/styles/variables";
+@import 'src/app/shared/styles/variables';
 
 #game-container {
-    height: 84%;
-    margin: 2vh 2vw 0;
+    height: 600px;
+    width: 600px;
+    margin: auto;
+    padding-top: 100px;
+
+    @media (max-width: 960px) {
+        height: 84%;
+        width: auto;
+        margin: 2vh 2vw 0;
+        padding: 0
+    }
 }
 
 #bottom-panel {
