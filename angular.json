@@ -35,7 +35,8 @@
                         "scripts": [
                             "node_modules/particles.js/particles.js",
                             "node_modules/scrollreveal/dist/scrollreveal.js"
-                        ]
+                        ],
+                        "sourceMap": true
                     },
                     "configurations": {
                         "production": {
@@ -108,5 +109,8 @@
             }
         }
     },
-    "defaultProject": "portfolio"
+    "defaultProject": "portfolio",
+    "cli": {
+      "analytics": false
+    }
 }
