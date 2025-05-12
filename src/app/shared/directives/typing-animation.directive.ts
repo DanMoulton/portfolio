@@ -25,7 +25,7 @@ export class TypingAnimationDirective implements AfterViewInit {
             duration: 1000,
             iterations: Infinity
         };
-        this.elementRef.nativeElement.setAttribute('style', 'border-right: 1px solid #ffffffbf');
+        this.elementRef.nativeElement.setAttribute('style', 'border-right: 2px solid #ffffffbf');
         this.blinkingTextCursorAnimation = this.elementRef.nativeElement.animate(blinkingTextCursorAnimationKeyframes, blinkingTextCursorTiming);
         this.blinkingTextCursorAnimation.pause();
     }
