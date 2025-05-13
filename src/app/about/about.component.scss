@@ -15,7 +15,7 @@
 
     #intro {
         display: inline-block;
-        margin-bottom: 24vh;
+        margin: 10% 0 14vh;
         text-align: center;
 
         #author {
@@ -67,7 +67,6 @@
         @media (max-width: 960px) {
             display: block;
             width: fit-content;
-            margin: 12vh auto;
         }
         @media (max-width: 960px) and (orientation: landscape) {
             margin: 10vh auto 20vh;

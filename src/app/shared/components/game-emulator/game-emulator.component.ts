@@ -1,11 +1,4 @@
-import {
-    Component,
-    EventEmitter,
-    OnDestroy,
-    OnInit,
-    Output,
-    Renderer2,
-} from '@angular/core';
+import { Component, EventEmitter, OnDestroy, OnInit, Output, Renderer2 } from '@angular/core';
 
 import { environment } from '../../../../environments/environment';
 
@@ -23,11 +16,11 @@ export class GameEmulatorComponent implements OnDestroy, OnInit {
         if (window.document.getElementById('blur')) {
             window.document.getElementById('blur')!.style.zIndex = '10';
         }
-        if (window.document.getElementById('brand-logo')) {
-            window.document.getElementById('brand-logo')!.style.zIndex = '10';
-        }
         if (window.document.getElementById('menu-btn')) {
             window.document.getElementById('menu-btn')!.style.zIndex = '10';
+        }
+        if (window.document.getElementById('brand-logo')) {
+            window.document.getElementById('brand-logo')!.style.zIndex = '10';
         }
         if (window.document.getElementById('shader-layer')) {
             window.document.getElementById('shader-layer')!.style.zIndex = '10';
@@ -133,23 +126,23 @@ export class GameEmulatorComponent implements OnDestroy, OnInit {
     }
 
     public removeEmulatorScripts(): void {
-        document
-            .querySelectorAll('script[src*="emulator"]')
-            .forEach((element) => {
-                element.remove();
-            });
-        document
-            .querySelectorAll('link[href*="emulator"]')
-            .forEach((element) => {
-                element.remove();
-            });
+        document.querySelectorAll('script[src*="emulator"]').forEach((element) => {
+            element.remove();
+        });
+        document.querySelectorAll('link[href*="emulator"]').forEach((element) => {
+            element.remove();
+        });
         document.getElementById('emulatorConfig')?.remove();
     }
 
     ngOnDestroy(): void {
-        window.document.getElementById('blur')!.style.zIndex = '30';
+        if (window.document.getElementById('blur')) {
+            window.document.getElementById('blur')!.style.zIndex = '30';
+        }
+        if (window.document.getElementById('menu-btn')) {
+            window.document.getElementById('menu-btn')!.style.zIndex = '60';
+        }
         window.document.getElementById('brand-logo')!.style.zIndex = '50';
-        window.document.getElementById('menu-btn')!.style.zIndex = '60';
         window.document.getElementById('shader-layer')!.style.zIndex = '100';
 
         this.removeEmulatorScripts();

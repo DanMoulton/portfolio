@@ -1,3 +1,5 @@
+import { getAnalytics, provideAnalytics } from '@angular/fire/analytics';
+import { getAuth, provideAuth } from '@angular/fire/auth';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -14,23 +16,19 @@ import { HomeComponent } from './home/home.component';
 import { SharedModule } from './shared/shared.module';
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        AboutComponent,
-        BlogComponent,
-        ContactComponent,
-        ExperienceComponent,
-        HomeComponent
-    ],
+    declarations: [AppComponent, AboutComponent, BlogComponent, ContactComponent, ExperienceComponent, HomeComponent],
     imports: [
+        provideAuth(() => getAuth()),
+        provideAnalytics(() => getAnalytics()),
+
         BrowserModule,
         BrowserAnimationsModule,
         AppRoutingModule,
         CoreModule,
         NgsRevealModule,
-        SharedModule
+        SharedModule,
     ],
     providers: [],
-    bootstrap: [AppComponent]
+    bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

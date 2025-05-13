@@ -29,7 +29,7 @@ module.exports = {
         ],
         '@typescript-eslint/no-var-requires': 0,
         'arrow-spacing': 2,
-        'camelcase': 2,
+        'camelcase': 0,
         'comma-spacing': 2,
         'constructor-super': 2,
         'for-direction': 2,
