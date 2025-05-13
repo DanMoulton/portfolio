@@ -5,12 +5,13 @@
     width: 600px;
     margin: auto;
     padding-top: 100px;
+    -webkit-touch-callout: none;
 
     @media (max-width: 960px) {
         height: 84%;
         width: auto;
         margin: 2vh 2vw 0;
-        padding: 0
+        padding: 0;
     }
 }
 

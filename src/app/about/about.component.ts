@@ -58,7 +58,7 @@ export class AboutComponent implements OnDestroy, AfterViewInit {
 
         if (this.isScreenSizeSmall) {
             this.renderer.addClass(this.aboutElement.nativeElement, 'hidden');
-            this.stateService.setLogoVisibilityState(false);
+            this.stateService.setHeaderVisibilityState(false);
         }
     }
 
@@ -81,12 +81,12 @@ export class AboutComponent implements OnDestroy, AfterViewInit {
             if (window.pageYOffset <= 40) {
                 this.renderer.addClass(this.aboutElement.nativeElement, 'hidden');
 
-                this.stateService.setLogoVisibilityState(false);
+                this.stateService.setHeaderVisibilityState(false);
                 this.logoVisible = false;
             } else if (!this.logoVisible) {
                 this.renderer.removeClass(this.aboutElement.nativeElement, 'hidden');
 
-                this.stateService.setLogoVisibilityState(true);
+                this.stateService.setHeaderVisibilityState(true);
                 this.logoVisible = true;
             }
         }
@@ -96,7 +96,7 @@ export class AboutComponent implements OnDestroy, AfterViewInit {
         // Reset the logo to be visible.
         if (this.isScreenSizeSmall) {
             if (!this.logoVisible) {
-                this.stateService.setLogoVisibilityState(true);
+                this.stateService.setHeaderVisibilityState(true);
             }
         }
     }

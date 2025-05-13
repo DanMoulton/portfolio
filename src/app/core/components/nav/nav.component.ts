@@ -12,9 +12,9 @@ import { StateService } from '../../../shared/services/state.service';
 export class NavComponent implements AfterViewInit, OnInit {
     @ViewChild('blur') blurElement!: ElementRef;
     @ViewChild('logo') logoElement!: ElementRef;
+    @ViewChild('menuBtn') menuButtonElement!: ElementRef;
 
     public environment = environment;
-
     public routes: Routes = [];
     private blurHidden = true;
 
@@ -25,11 +25,13 @@ export class NavComponent implements AfterViewInit, OnInit {
     }
 
     ngAfterViewInit(): void {
-        this.stateService.getLogoVisibilityState$.subscribe((visibility) => {
+        this.stateService.getHeaderVisibilityState$.subscribe((visibility) => {
             if (visibility) {
                 this.renderer.setStyle(this.logoElement.nativeElement, 'opacity', '1');
+                this.renderer.setStyle(this.menuButtonElement.nativeElement, 'opacity', '1');
             } else {
                 this.renderer.setStyle(this.logoElement.nativeElement, 'opacity', '0');
+                this.renderer.setStyle(this.menuButtonElement.nativeElement, 'opacity', '0');
             }
         });
     }
