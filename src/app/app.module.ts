@@ -1,5 +1,5 @@
 import { getAnalytics, provideAnalytics } from '@angular/fire/analytics';
-import { getAuth, provideAuth } from '@angular/fire/auth';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -11,6 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { BlogComponent } from './blog/blog.component';
 import { ContactComponent } from './contact/contact.component';
 import { CoreModule } from './core/core.module';
+import { environment } from '../environments/environment';
 import { ExperienceComponent } from './experience/experience.component';
 import { HomeComponent } from './home/home.component';
 import { SharedModule } from './shared/shared.module';
@@ -18,9 +19,8 @@ import { SharedModule } from './shared/shared.module';
 @NgModule({
     declarations: [AppComponent, AboutComponent, BlogComponent, ContactComponent, ExperienceComponent, HomeComponent],
     imports: [
-        provideAuth(() => getAuth()),
+        provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
         provideAnalytics(() => getAnalytics()),
-
         BrowserModule,
         BrowserAnimationsModule,
         AppRoutingModule,

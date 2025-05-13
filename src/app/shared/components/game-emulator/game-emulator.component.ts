@@ -1,3 +1,4 @@
+import { Analytics, logEvent } from '@angular/fire/analytics';
 import { Component, EventEmitter, OnDestroy, OnInit, Output, Renderer2 } from '@angular/core';
 
 import { environment } from '../../../../environments/environment';
@@ -10,9 +11,11 @@ import { environment } from '../../../../environments/environment';
 export class GameEmulatorComponent implements OnDestroy, OnInit {
     @Output() closeEmulatorEvent = new EventEmitter<void>();
 
-    constructor(private renderer: Renderer2) {}
+    constructor(private renderer: Renderer2, private analytics: Analytics) {}
 
     ngOnInit(): void {
+        logEvent(this.analytics, 'opened_emulator');
+
         if (window.document.getElementById('blur')) {
             window.document.getElementById('blur')!.style.zIndex = '10';
         }
