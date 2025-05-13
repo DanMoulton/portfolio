@@ -2,9 +2,10 @@
     <img alt="Logo" src="src/assets/svgs/brand-logo.svg" width="150" />
     <br>
     <a href="https://danmoulton.dev" target="_blank">
-        <h1>danmoulton.dev</h1>
+        danmoulton.dev
     </a>
     <br>
+    <hr>
 </div>
 
 This is the repository for my personal website, created using [Angular](https://angular.io/) version 15.
